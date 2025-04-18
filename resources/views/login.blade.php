@@ -1,103 +1,54 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Login</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>connexion</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="test.js"></script>
 </head>
+<body class="bg-[url('{{ asset('assets/img/medicines-medical-supplies-placed-blue.jpg') }}')] h-screen bg-cover bg-center place-content-center">
+    <section class="flex justify-center items-center  w-full h-screen">
+        <div class=" flex justify-between bg-[#f5f7fb] rounded-xl drop-shadow-2xl">
+            <div class="">
+                <img class="object-cove  h-full rounded-tl-lg rounded-bl-xl rounded-tr-[70px] " src="{{ asset('assets/img/GST CAM 939-10.jpg') }}" alt=""  >
+            </div>
+            <div class="p-5  ">
+                <div class="flex justify-center mb-1 "><img src="{{ asset('assets/img/Logo dilane 2.png') }}" class="w-[100px] h-[80px]" alt=""></div>
 
-<body class="bg-gradient-primary">
+                <form action="" class="w-[310px] ">
 
-    <div class="container">
-
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-
-            <div class="col-xl-10 col-lg-12 col-md-9">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                                    </div>
-                                    <form class="user">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
-                                    </form>
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                     <div class="flex flex-col">
+                        <label for="" class="pb-2">E-mail :</label>
+                        <input type="email" class="placeholder:text-center px-5 bg-white shadow-sm shadow-[#44c244]/75 rounded-md h-[40px] mb-5 focus:outline-1 focus:outline-green-500 " placeholder="exemple@gmail.com" >
                     </div>
-                </div>
+                    <div class="flex flex-col mb-2">
+                        <label for="" class="pb-2">Mot de passe :</label>
+                        <input type="password" class="placeholder:text-center px-5 bg-white  shadow-sm shadow-[#44c244]/75 rounded-md h-[40px] mb-5 focus:outline-1 focus:outline-green-500" placeholder="password" >
+                    </div>
+                    <div class="flex flex-col" >
+                        <span class="flex justify-center ">
+                            <button class="flex gap-1 bg-[#44C244] hover:bg-[#3daf3d] hover:outline-2  text-white rounded-md px-3 py-1 font-semibold shadow-sm shadow-[gray] focus:outline-2 focus:outline-offset-2 focus:outline-[#44C244#03A9F5] active:bg-[#44C244]">
+                                <img src="{{ asset('assets/img/connexion.png') }}" alt="" class="w-[20px] ">
+                                Connexion
+                            </button>
+                        </span>
+                        <p class="my-2 text-gray-400 text-center font-semibold">Vous n'avez pas de compte ?</p>
+                        <span class="flex justify-center"><hr class="w-[280px] opacity-25"></span>
+
+                        <span class="flex justify-center ">
+
+                            <a href="inscripton.html" class="flex gap-1 bg-[#176abc] hover:bg-[#0398dd] hover:outline-2 text-white rounded-md font-semibold px-3 py-1 mt-5 mb-1 shadow-sm shadow-[gray] focus:outline-2 focus:outline-offset-2 focus:outline-[#03A9F5] active:bg-[#03A9F5]">
+                                <img src="{{ asset('assets/img/add-user.png') }}" alt="" class="w-[20px] h-[20px]">
+                                S'inscrire
+                            </a>
+                        </span>
+                    </div>
+
+                </form>
 
             </div>
-
         </div>
 
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{asset('assets/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{asset('assets/js/sb-admin-2.min.js')}}"></script>
-
+    </section>
 </body>
-
 </html>
