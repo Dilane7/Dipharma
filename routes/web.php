@@ -5,7 +5,11 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/contacts', function () {
+    return view('contacts');
+})->name('contacts');
 
 
 
@@ -17,8 +21,8 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('welcome');
+    Route::get('/welcomeAdmin', function () {
+        return view('welcomeAdmin');
+    })->name('welcomeAdmin');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

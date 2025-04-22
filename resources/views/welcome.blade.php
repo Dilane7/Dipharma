@@ -1,352 +1,390 @@
-<x-layaout>
-    {{-- <!-- Begin Page Content -->
-    <div class="container-fluid">
+@extends('base')
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-        </div>
-
-        <!-- Content Row -->
-        <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Earnings (Monthly)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<section class=" md:mt-24 bg-black">
+    <div class="w-full md:h-150 overflow-hidden relative">
+        <div class="flex carousel-slides duration-500 ease-in-out transition-transform">
+            <div class="flex-shrink-0 w-full carousel-slide">
+                <img src="{{ asset('assets/img/slider.jpg') }}" alt="Image 1" class="h-full w-full object-cover">
             </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Earnings (Annual)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="flex-shrink-0 w-full carousel-slide">
+                <img src="{{ asset('assets/img/slider2.jpg') }}" alt="Image 2" class="h-full w-full object-cover">
             </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                </div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-info" role="progressbar"
-                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-warning shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Pending Requests</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-comments fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="flex-shrink-0 w-full carousel-slide">
+                <img src="{{ asset('assets/img/slider3.png') }}" alt="Image 3" class="h-full w-full object-cover">
             </div>
         </div>
-
-        <!-- Content Row -->
-
-        <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div
-                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                        <div class="dropdown no-arrow">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Dropdown Header:</div>
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <div class="chart-area">
-                            <canvas id="myAreaChart"></canvas>
-                        </div>
-                    </div>
+        <button class="bg-[#176abc] rounded-full text-white -translate-y-1/2 absolute carousel-prev left-2 md:top-1/2 px-3 py-1 top-1/2 transform">
+            &#10094;
+        </button>
+        <button class="bg-[#176abc] rounded-full text-white -translate-y-1/2 absolute carousel-next md:top-1/2 px-3 py-1 right-2 top-1/2 transform">
+            &#10095;
+        </button>
+        <div class="absolute left-[200px] md:top-1/6 top-1/20">
+            <img src="{{ asset('assets/img/Logo dilane 1 - Copie.png') }}" class="w-30 animate-bounce md:w-60" alt="">
+            <h1 class="text-[black] text-xl font-semibold font-[Poppins] md:text-4xl">
+                La <span class="text-[#369b36] text-bold">santé</span> en toute <span class="text-[#176abc] text-bold">simplicité ! </span>
+            </h1> <br>
+            <h3 class="text-sm md:text-lg">
+                Commandez en ligne et  profitez de la livraison à domicile ! <br>
+                L'expertise pharmaceutique à votre service.
+            </h3> <br>
+            <div class="flex">
+                <div>
+                    <button class="bg-[#176abc] text-xl  shadow-[gray]/75 rounded-md shadow-sm text-white font-semibold gap-2 hover:bg-white hover:text-[#176abc]  hover:outline-2 items-center px-3 py-1">
+                        Get Started
+                    </button>
                 </div>
-            </div>
-
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div
-                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                        <div class="dropdown no-arrow">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Dropdown Header:</div>
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <div class="chart-pie pt-4 pb-2">
-                            <canvas id="myPieChart"></canvas>
-                        </div>
-                        <div class="mt-4 text-center small">
-                            <span class="mr-2">
-                                <i class="fas fa-circle text-primary"></i> Direct
-                            </span>
-                            <span class="mr-2">
-                                <i class="fas fa-circle text-success"></i> Social
-                            </span>
-                            <span class="mr-2">
-                                <i class="fas fa-circle text-info"></i> Referral
-                            </span>
-                        </div>
-                    </div>
+                <div>
+                    <button class="bg-[#44C244] text-xl rounded-md shadow-[gray]/75 shadow-sm text-white active:bg-white hover:text-[#44C244] focus:outline-[#44C244] focus:outline-2 focus:outline-offset-2 font-semibold hover:bg-white hover:outline-2 ml-7 px-3 py-1">
+                        Produits
+                    </button>
                 </div>
-            </div>
-        </div>
-
-        <!-- Content Row -->
-        <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-                <!-- Project Card Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="small font-weight-bold">Server Migration <span
-                                class="float-right">20%</span></h4>
-                        <div class="progress mb-4">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Sales Tracking <span
-                                class="float-right">40%</span></h4>
-                        <div class="progress mb-4">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
-                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Customer Database <span
-                                class="float-right">60%</span></h4>
-                        <div class="progress mb-4">
-                            <div class="progress-bar" role="progressbar" style="width: 60%"
-                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Payout Details <span
-                                class="float-right">80%</span></h4>
-                        <div class="progress mb-4">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
-                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Account Setup <span
-                                class="float-right">Complete!</span></h4>
-                        <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Color System -->
-                <div class="row">
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-primary text-white shadow">
-                            <div class="card-body">
-                                Primary
-                                <div class="text-white-50 small">#4e73df</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-success text-white shadow">
-                            <div class="card-body">
-                                Success
-                                <div class="text-white-50 small">#1cc88a</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-info text-white shadow">
-                            <div class="card-body">
-                                Info
-                                <div class="text-white-50 small">#36b9cc</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-warning text-white shadow">
-                            <div class="card-body">
-                                Warning
-                                <div class="text-white-50 small">#f6c23e</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-danger text-white shadow">
-                            <div class="card-body">
-                                Danger
-                                <div class="text-white-50 small">#e74a3b</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-secondary text-white shadow">
-                            <div class="card-body">
-                                Secondary
-                                <div class="text-white-50 small">#858796</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-light text-black shadow">
-                            <div class="card-body">
-                                Light
-                                <div class="text-black-50 small">#f8f9fc</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-dark text-white shadow">
-                            <div class="card-body">
-                                Dark
-                                <div class="text-white-50 small">#5a5c69</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-lg-6 mb-4">
-
-                <!-- Illustrations -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="text-center">
-                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                src="img/undraw_posting_photo.svg" alt="...">
-                        </div>
-                        <p>Add some quality, svg illustrations to your project courtesy of <a
-                                target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                            constantly updated collection of beautiful svg images that you can use
-                            completely free and without attribution!</p>
-                        <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                            unDraw &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- Approach -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                    </div>
-                    <div class="card-body">
-                        <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                            CSS bloat and poor page performance. Custom CSS classes are used to create
-                            custom components and custom utility classes.</p>
-                        <p class="mb-0">Before working with this theme, you should become familiar with the
-                            Bootstrap framework, especially the utility classes.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
 
     </div>
-    <!-- /.container-fluid -->
+</section>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+
+<section class="" id="propos">
+    <div class="w-full relative md:flex md:flex-row md:justify-between md:left-0 md:top-[-110] md:w-[75%] mx-auto sm:flex-column sm:justify-between" >
+        <div class="flip-card md:mt-0 mt-10 mx-auto">
+            <img class="absolute left-3 top-3 z-1" src="{{ asset('assets/img/double-cliquez.png') }}" alt="">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <p class="title text-xl py-4 mt-2 ">Sélection de Produits</p>
+                    <p class="text-lg">Rechercher et commander vos produits de santé en quelques clics.</p>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                <div class="flip-card-back">
+                    <p class="title text-2xl">Dipharma</p>
+                    <p></p>
                 </div>
             </div>
         </div>
-    </div> --}}
-</x-layaout>
+        <div class="flip-card md:my-0 mx-auto my-10">
+            <img class="absolute left-3 top-3 z-1" src="{{ asset('assets/img/soins-de-sante.png') }}" alt="">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <p class="title text-xl py-4 mt-2" >Votre Santé, Notre Priorité</p>
+                    <p class="text-lg">Bénéficiez de l'expertise de nos pharmaciens qualifiés. </p>
+                </div>
+                <div class="flip-card-back">
+                    <p class="title text-2xl">Dipharma</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card mb-10 md:mb-0 mx-auto">
+            <img class="absolute left-3 top-3 z-1 " src="{{ asset('assets/img/livraison-express.png') }}" alt="">
+            <div class="flip-card-inner ">
+                <div class="flip-card-front">
+                    <p class="title text-xl  py-4 mt-2 ">Livraison Rapide et Sécurisée</p><br>
+                    <p class="text-lg">La pharmacie jusqu'à votre porte. Profitez de la simplicité de la livraison </p>
+
+                </div>
+                <div class="flip-card-back">
+                    <p class="title text-2xl">Dipharma</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="" >
+    <div class="">
+        <h1 class="text-3xl text-center text-[#176abc] font-bold font-[Poppins]">Nous sommes toujours prêts à vous aider <br> vous & votre famille</h1>
+        <span class="flex justify-center p-5"><img src="{{ asset('assets/img/section-img.png') }}" alt="" class="flex justify-center py-4"></span>
+        <h1 class="text-center pb-3 text-lg text-[#013b56]  font-[Poppins]">Des solutions santé discrètes et efficaces, livrées chez vous.</h1>
+    </div>
+    <div class="md:flex md:justify-between items-center my-10 flex-column w-[60%] m-auto py-3">
+        <div class="flex flex-col items-center">
+            <div class="flex justify-center p-3 w-23 h-23 rounded-full overflow-hidden border-1 border-[#176abc]">
+                <img src="{{ asset('assets/img/healthcare.png') }}" class="" alt="">
+            </div>
+            <div>
+                <h2 class="text-center text-xl font-semibold">Pharmacie Enrichie</h2>
+            </div>
+        </div>
+        <div class="md:block hidden">
+            <span class="text-[#176abc] text-3xl">............</span>
+        </div>
+        <div class="flex flex-col items-center">
+            <div class="flex justify-center p-3 w-23 h-23 rounded-full overflow-hidden border-1 border-[#176abc] ">
+                <img src="{{ asset('assets/img/ambulance.png') }}" alt="">
+            </div>
+            <div>
+                <h2 class="text-center text-xl font-semibold">Livraison à domicile</h2>
+            </div>
+        </div>
+        <div class="md:block hidden">
+            <span class="text-[#176abc] text-3xl ">............</span>
+        </div>
+        <div class="flex flex-col items-center">
+            <div class="flex justify-center p-3 w-23 h-23 rounded-full overflow-hidden border-1 border-[#176abc]">
+                <img src="{{ asset('assets/img/sthetoscope.png') }}" alt="">
+            </div>
+            <div>
+                <h2 class="text-center text-xl font-semibold">Traitement médical</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- separation compteur -->
+
+<section>
+    <div class="relative w-full my-25">
+        <img src="{{ asset('assets/img/fun-bg.jpg') }}" alt="" class="object-cover h-60 w-full">
+        <div class="bg-[#176abc]/75 w text-white flex items-center font-semibold text-2xl h-60 absolute w-full top-0 z-1">
+             <div class="flex w-[75%] mx-auto justify-between">
+                <div class="compteur-container flex items-center gap-4">
+                    <img src="{{ asset('assets/img/bonheur.png') }}" alt="" class="w-17 h-17">
+                    <div >
+                        <div class="text-4xl"><span id="compteur1" >0</span><span>+</span></div>
+                        <div class="text-md"></div>
+                    </div>
+                  </div>
+
+                  <div class="compteur-container flex items-center gap-4">
+                    <img src="{{ asset('assets/img/bonheur.png') }}" alt="" class="w-17 h-17">
+                    <div >
+                        <div class="text-4xl"><span id="compteur2" >0</span><span>+</span></div>
+                        <div class="text-md">Clients Hereux</div>
+                    </div>
+                  </div>
+
+                  <div class="compteur-container flex items-center gap-4">
+                    <img src="{{ asset('assets/img/bonheur.png') }}" alt="" class="w-17 h-17">
+                    <div >
+                        <div class="text-4xl"><span id="compteur3" >0</span><span>+</span></div>
+                        <div class="text-md"></div>
+                    </div>
+                  </div>
+             </div>
+        </div>
+    </div>
+</section>
+
+<!-- section nos produits -->
+
+<section>
+    <h1 class="text-3xl text-center text-[#176abc] font-bold  font-[Poppins]">Nos Produits Phares</h1>
+    <span class="flex justify-center p-5"><img src="{{ asset('assets/img/section-img.png') }}" alt="" class="flex justify-center "></span>
+
+
+            <!-- component -->
+             <div class="w-[75%] m-auto mt-25 mb-30 flex mx-auto gap-5 flex-wrap justify-between">
+                <div class="relative flex w-65 flex-col rounded-xl bg-[#176abc] border-blue-500 border-1 text-white shadow-md">
+                    <div class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl border-1 border-blue-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-white transform transition-all duration-300 hover:-translate-y-4">
+                        <div class="w-full h-full flex justify-center items-center">
+                          <img src="{{ asset('assets/img/cetirizine.jpg') }}" alt=""  width="200px"  class=" object-cover">
+                        </div>
+                      </div>
+                    <div class="p-6">
+                      <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                       Cetirizine
+                      </h5>
+                      <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.
+                      </p>
+                    </div>
+                    <div class="p-6 pt-0">
+                      <button data-ripple-light="true" type="button" class="select-none border border-white rounded-lg bg-[#44C244] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-[#44C244]/20 transition-all hover:shadow-lg hover:bg-white hover:text-[#44C244] hover:shadow-[#44C244]/40 focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
+                        VOIR PLUS
+                      </button>
+                    </div>
+                </div>
+
+
+                <div class="relative flex w-65 flex-col rounded-xl  border-[#176abc] border-1 text-[#176abc]  shadow-md">
+                    <div class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl border-1 border-[#176abc] bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-white transform transition-all duration-300 hover:-translate-y-4">
+                        <div class="w-full h-full flex justify-center items-center">
+                          <img src="{{ asset('assets/img/doliprane 1000mg.png') }}" alt=""  width="200px"  class=" object-cover">
+                        </div>
+                      </div>
+                    <div class="p-6">
+                      <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                       Doliprane 1000mg
+                      </h5>
+                      <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.
+                      </p>
+                    </div>
+                    <div class="p-6 pt-0">
+                      <button data-ripple-light="true" type="button" class="select-none rounded-lg  bg-[#176abc] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray/20 transition-all hover:shadow-lg hover:shadow-blue-600/40 focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
+                        VOIR PLUS
+                      </button>
+                    </div>
+                </div>
+
+
+                <div class="relative flex w-65 flex-col rounded-xl bg-[#176abc]  border-blue-500 border-1 text-white shadow-md ">
+                    <div class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl border-1 border-blue-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-white transform transition-all duration-300 hover:-translate-y-4">
+                      <div class="w-full h-full flex justify-center items-center">
+                        <img src="{{ asset('assets/img/efferalgan-1-g-comprime-upsa.jpg') }}" alt=""  width="150px"  class=" object-cover">
+                      </div>
+                    </div>
+                    <div class="p-6">
+                      <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal antialiased">
+                       Efferalgan 1000mg
+                      </h5>
+                      <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.
+                      </p>
+                    </div>
+                    <div class="p-6 pt-0">
+                      <button data-ripple-light="true" type="button" class="select-none rounded-lg bg-[#44C244] py-3 px-6 border text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-[#44C244]/20 transition-all hover:shadow-lg hover:shadow-[#44C244]/40 focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
+                        VOIR PLUS
+                      </button>
+                    </div>
+                </div>
+            </div>
+
+</section>
+
+<section>
+    <div class="relative w-full ">
+        <img src="{{ asset('assets/img/call-bg.jpg') }}" alt="" class="object-cover h-85 w-full">
+        <div class="bg-[#176abc]/75 text-white  items-center text-center font-semibold text-3xl h-85 absolute w-full top-0 z-1">
+            <h1 class="text-3xl font-bold mt-20">Avez vous besoin des Medicaments <br> urgents ?</h1>
+            <h3 class="text-lg my-2">Pour toute question, n'hésitez pas à nous contacter.</h3>
+            <button class="bg-white text-xl rounded-md shadow-[gray]/75 shadow-sm text-[#176abc] active:text-white active:bg-[#176abc] focus:outline-white focus:outline-2 focus:outline-offset-2 font-semibold hover:bg-[#176abc] hover:text-white hover:outline-2 ml-7 px-3 py-1 mt-5">
+                Contactez-nous
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- section services     -->
+<section class="bg-[#fafafa] mb-25 py-20" id="services">
+    <h1 class="text-3xl text-center text-[#176abc] font-bold  font-[Poppins] ">Nos Services</h1>
+    <span class="flex justify-center  p-10"><img src="{{ asset('assets/img/section-img.png') }}" alt="" class="flex justify-center "></span>
+
+    <div class="w-[75%] m-auto mt-10 mb-5 flex mx-auto gap-5 flex-wrap justify-between">
+        <div class="w-60 h-90 border bg-white  border-[#176abc] rounded-3xl text-[#176abc] p-4 flex flex-col items-start justify-center gap-3 transition-all duration-300 hover:-translate-y-4 ">
+            <div class="w-52 h-40 bg-sky-300 rounded-2xl">
+                <img src="{{ asset('assets/img/portrait-woman-working-pharmaceutical-industry.jpg') }}" alt="" class="w-full h-full object-cover rounded-2xl">
+            </div>
+            <div class="">
+                <p class="font-extrabold">Commercialisation</p>
+                <p class="">Votre santé, notre engagement. Des solutions pharmaceutiques fiables pour vous aider à vous sentir mieux, chaque jour.</p>
+            </div>
+            <div class="flex items-center ">
+                <div class="text-yellow-400">★★★★</div>
+                <div class="text-gray-300">★</div>
+                <span class="text-sm text-gray-600 ml-1">(42)</span>
+            </div>
+        </div>
+
+        <div class="w-60 h-90 border bg-white  border-[#176abc] rounded-3xl text-[#176abc] p-4 flex flex-col items-start justify-center gap-3 transition-all duration-300 hover:-translate-y-4 ">
+            <div class="w-52 h-40 bg-sky-300 rounded-2xl">
+                <img src="{{ asset('assets/img/close-up-delivery-person-giving-parcel-client.jpg') }}" alt="" class="w-full h-full object-cover rounded-2xl">
+            </div>
+            <div class="">
+                <p class="font-extrabold">Livraison</p>
+                <p class="">La pharmacie vient à vous ! Commandez en ligne et recevez vos médicaments. Gain de temps et tranquillité d'esprit garantis."</p>
+            </div>
+            <div class="flex items-center ">
+                <div class="text-yellow-400">★★★</div>
+                <div class="text-gray-300">★★</div>
+                <span class="text-sm text-gray-600 ml-1">(33)</span>
+            </div>
+        </div>
+
+        <div class="w-60 h-90 border bg-white border-[#176abc] rounded-3xl text-[#176abc] p-4 flex flex-col items-start justify-center gap-3 transition-all duration-300 hover:-translate-y-4 ">
+            <div class="w-52 h-40 bg-sky-300 rounded-2xl">
+                <img src="{{ asset('assets/img/happy-african-american-doctor-with-headset-working-laptop-her-office.jpg') }}" alt="" class="w-full h-full object-cover rounded-2xl">
+            </div>
+            <div class="">
+                <p class="font-extrabold">Consultation</p>
+                <p class=""> Bénéficiez d'une consultation en ligne pratique et connectez-vous avec nos experts où que vous soyez.</p>
+            </div>
+            <div class="flex items-center ">
+                <div class="text-yellow-400">★★★★</div>
+                <div class="text-gray-300">★</div>
+                <span class="text-sm text-gray-600 ml-1">(19)</span>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+<!-- section temoignage -->
+
+<section>
+    <h1 class="text-3xl mb-5 text-center text-[#176abc] font-bold  font-[Poppins] ">Temoignages</h1>
+    <span class="flex justify-center p-5"><img src="{{ asset('assets/img/section-img.png') }}" alt="" class="flex justify-center "></span>
+
+    <h4 class="text-2xl text-center font-bold text-[#44c244]">Ce Que Disent Nos Clients</h4> <br>
+
+
+    <!-- This is an example component -->
+    <div class="my-5 mx-auto">
+
+        <div id="default-carousel" class="relative z-1" data-carousel="static">
+            <!-- Carousel wrapper -->
+            <div class="overflow-hidden relative h-80 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+                <!-- Item 1 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="flex flex-col items-center">
+
+                        <img src="{{ asset('assets/img/confident-african-businesswoman-smiling-closeup-portrait-jobs-career-campaign.jpg') }}" alt=""  class="h-20 w-20 rounded-full"> <br> <br>
+                        <p class="w-[70%] text-center text-[#176abc] mx-auto text-xl">Souffrant de mobilité réduite, les déplacements étaient toujours compliqués. La consultation en ligne
+                            a été une véritable bouée de sauvetage. J'ai pu obtenir les conseils dont j'avais besoin confortablement installée chez moi, sans stress
+                        <h4 class="text-2xl mt-8"> Fatou D.</h4>
+                      </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="flex flex-col items-center">
+
+                        <img src="{{ asset('assets/img/african-american-woman-wearing-white-t-shirt-apparel-close-up.jpg') }}" alt=""  class="h-20 w-20 rounded-full"> <br> <br>
+                        <p class="w-[70%] text-center text-[#176abc] mx-auto text-xl">Un soir, mon enfant a eu une forte fièvre et nous avions besoin d'un médicament rapidement.
+                            La possibilité de se faire livrer en urgence a été un véritable plus. Nous avons reçu le nécessaire en un temps record, ce qui nous a évité beaucoup de stress
+                        <h4 class="text-2xl mt-8">  Nadia K.</h4>
+                      </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="flex flex-col items-center">
+
+                        <img src="{{ asset('assets/img/middle-aged-cheerful-dark-skinned-male-with-shining-smile.jpg') }}" alt=""  class="h-20 w-20 rounded-full"> <br> <br>
+                        <p class="w-[70%] text-center text-[#176abc] mx-auto text-xl">En plus du médicament préparé spécialement pour moi, j'ai reçu des
+                            conseils très clairs de la part de l'équipe de la pharmacie sur la façon de l'utiliser et les précautions à prendre. Je me suis senti vraiment bien accompagné.
+                        <h4 class="text-2xl mt-8">  Pierre M</h4>
+                      </div>
+                </div>
+            </div>
+            <!-- Slider indicators -->
+            <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+            </div>
+            <!-- Slider controls -->
+            <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
+                <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    <span class="hidden">Previous</span>
+                </span>
+            </button>
+            <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
+                <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="hidden">Next</span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+</section>
+
+@section('content')
+
+@endsection
+
+
