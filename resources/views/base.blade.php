@@ -23,7 +23,7 @@
             <div class="flex nav-links bg-white w-full absolute items-center left-0 md:min-h-fit md:static md:w-auto min-h-[45vh] px-15 top-[-100%] z-1">
                     <ul class="flex flex-col gap-10 md:flex-row md:gap-[4vw] md:items-center">
                         <li class="text-lg font-[Poppins] group inline-block relative">
-                            <a class="text-[#176abc] hover:text-[#176abc]"  href="#">Acceuil</a>
+                            <a class="text-[#176abc] hover:text-[#176abc]"  href="{{ route('welcome') }}">Acceuil</a>
                             <span class="bg-[#176abc] h-[3px] w-full absolute bottom-[-33px] group-hover:scale-x-100 left-0"></span>
                         </li>
                         <li class="text-lg font-[Poppins] group inline-block relative">

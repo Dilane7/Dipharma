@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    
 
 </head>
 
@@ -43,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link " href="index.html">
                     <img src="{{ asset('assets/img/categorie.png') }}" alt="" width="20px" class="img-fluid">
                     <span>Dashboard</span></a>
             </li>
@@ -51,7 +52,7 @@
 
             <!-- Nav Item - Produits Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed flex" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <img src="{{ asset('assets/img/produit.png') }}" alt="" width="20px" class="img-fluid">
 
@@ -68,7 +69,7 @@
 
             <!-- Nav Item - Categories -->
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ route('categories.index') }}">
                     <img src="{{ asset('assets/img/categories.png') }}" alt="" width="20px" class="img-fluid">
                     <span>Categories</span></a>
             </li>
