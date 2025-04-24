@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link " href="index.html">
+                <a class="nav-link " href="">
                     <img src="{{ asset('assets/img/categorie.png') }}" alt="" width="20px" class="img-fluid">
                     <span>Dashboard</span></a>
             </li>
@@ -61,8 +61,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Produits :</h6>
-                        <a class="collapse-item" href="buttons.html">Tous</a>
-                        <a class="collapse-item" href="cards.html">Nouveaux</a>
+                        <a class="collapse-item" href="{{ route('products.index') }}">Tous</a>
+                        <a class="collapse-item" href="{{ route('products.create') }}">Nouveaux</a>
                     </div>
                 </div>
             </li>
@@ -348,7 +348,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Dipharma 2023</span>
+                        <span>Copyright &copy; Dipharma 2025</span>
                     </div>
                 </div>
             </footer>

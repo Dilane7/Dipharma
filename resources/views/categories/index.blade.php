@@ -41,11 +41,11 @@
                                         </td>
                                         <td class="text-end">
                                             <div class="d-flex ">
-                                                <a href="{{ route('categories.edit', $category) }}" class="btn "><i class='fas fa-pencil-alt' style='font-size:18px;color:#176abc'></i></i></a>
+                                                <a href="{{ route('categories.edit', $category) }}" class="btn "><i class='fas fa-pencil-alt' style='font-size:18px;color:#176abc'></i></a>
                                                 <form action="{{ route('categories.destroy', $category) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn   btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')"><i class='fas fa-trash-alt' style='font-size:17px;color:red'></i></i></button>
+                                                    <button type="submit" class="btn   btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')"><i class='fas fa-trash-alt' style='font-size:17px;color:red'></i></button>
                                                 </form>
                                             </div>
 
