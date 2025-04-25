@@ -1,4 +1,5 @@
 <x-layaout>
+    
     <div class="px-5 bg-light">
         <h2 class="mb-4" style="color: #176abc">Gestion des Produits</h2>
 
@@ -8,7 +9,7 @@
             </div>
         @endif
 
-        <div class="shadow-sm rounded bg-white ">
+        <div class="shadow-sm rounded bg-white mb-4 ">
 
             <div class="d-flex justify-content-between align-items-center p-3">
                 <h5 style="color: #176abc">Liste des Produits</h5>
@@ -20,7 +21,7 @@
             <div class="table-responsive p-3">
                 <table class="table table-striped ">
                     <thead>
-                        <tr class="" style="color: #44C244; ">
+                        <tr class="" style="color: #176abc; ">
                             <th>Preview</th>
                             <th>Nom</th>
                             <th>Catégorie</th>
@@ -47,9 +48,17 @@
                                 <td>{{ $product->quantite }}</td>
                                 <td>{{ $product->prix }}</td>
                                 <td>{{ $product->dosage ?? '-' }}</td>
-                                <td>{{ $product->expiration_date ?? '-' }}</td>
-                                <td>
-                                    <span class="{{ $product->is_available ? 'badge bg-success text-white' : 'badge bg-danger text-white' }}">
+                                <td class="">
+                                    @if ($product->expiration_date)
+                                        <span class="badge py-1 {{ $product->getExpirationClass() }}" style="color: white">
+                                            {{ $product->expiration_date->format('d/m/Y') }}
+                                        </span>
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+                                <td >
+                                    <span class=" py-1 {{ $product->is_available ? 'badge bg-success text-white' : 'badge bg-danger text-white' }}">
                                         {{ $product->is_available ? 'Oui' : 'Non' }}
                                     </span>
                                 </td>
@@ -70,8 +79,12 @@
                         @endforelse
                     </tbody>
                 </table>
-                {{ $products->links() }}
             </div>
+
         </div>
+        {{ $products->links() }}
+
     </div>
 </x-layaout>
+
+

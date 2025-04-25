@@ -64,7 +64,7 @@ class ProductController extends Controller
     public function show(Product $product): View
     {
         $product->expiration_date = $product->expiration_date ? Carbon::parse($product->expiration_date) : null;
-        
+         
         return view('products.show', compact('product'));
     }
 

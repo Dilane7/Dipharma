@@ -46,6 +46,8 @@
 </section>
 
 
+
+
 <section class="" id="propos">
     <div class="w-full relative md:flex md:flex-row md:justify-between md:left-0 md:top-[-110] md:w-[75%] mx-auto sm:flex-column sm:justify-between" >
         <div class="flip-card md:mt-0 mt-10 mx-auto">
@@ -92,6 +94,7 @@
     </div>
 </section>
 
+
 <section class="" >
     <div class="">
         <h1 class="text-3xl text-center text-[#176abc] font-bold font-[Poppins]">Nous sommes toujours prêts à vous aider <br> vous & votre famille</h1>
@@ -135,7 +138,7 @@
 <!-- separation compteur -->
 
 <section>
-    <div class="relative w-full my-25">
+    <div class="relative w-full mb-0 mt-25">
         <img src="{{ asset('assets/img/fun-bg.jpg') }}" alt="" class="object-cover h-60 w-full">
         <div class="bg-[#176abc]/75 w text-white flex items-center font-semibold text-2xl h-60 absolute w-full top-0 z-1">
              <div class="flex w-[75%] mx-auto justify-between">
@@ -169,80 +172,88 @@
 
 <!-- section nos produits -->
 
-<section>
+<section class="bg-[#fafafa] py-20" >
     <h1 class="text-3xl text-center text-[#176abc] font-bold  font-[Poppins]">Nos Produits Phares</h1>
     <span class="flex justify-center p-5"><img src="{{ asset('assets/img/section-img.png') }}" alt="" class="flex justify-center "></span>
 
 
             <!-- component -->
-             <div class="w-[75%] m-auto mt-25 mb-30 flex mx-auto gap-5 flex-wrap justify-between">
-                <div class="relative flex w-65 flex-col rounded-xl bg-[#176abc] border-blue-500 border-1 text-white shadow-md">
-                    <div class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl border-1 border-blue-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-white transform transition-all duration-300 hover:-translate-y-4">
+             <div class="w-[75%]  m-auto mt-20 mb-10 flex mx-auto gap-5 flex-wrap justify-between">
+                <div class="relative flex w-90  shadow-black/50 flex-col rounded-2xl bg-white  text-black shadow-sm transform transition-all duration-300 hover:-translate-y-7">
+                    <div class="relative mx-8 mt-8 h-35 overflow-hidden rounded-xl  bg-clip-border text-white   bg-white transform transition-all duration-300 hover:-translate-y-4">
                         <div class="w-full h-full flex justify-center items-center">
                           <img src="{{ asset('assets/img/cetirizine.jpg') }}" alt=""  width="200px"  class=" object-cover">
                         </div>
                       </div>
-                    <div class="p-6">
-                      <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                    <div class="px-8 py-5">
+                      <h5 class="mb-2 block text-[#176abc] font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                        Cetirizine
                       </h5>
                       <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.
                       </p>
                     </div>
-                    <div class="p-6 pt-0">
-                      <button data-ripple-light="true" type="button" class="select-none border border-white rounded-lg bg-[#44C244] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-[#44C244]/20 transition-all hover:shadow-lg hover:bg-white hover:text-[#44C244] hover:shadow-[#44C244]/40 focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
+                    <div class="px-8 pt-0 pb-5">
+                        <button data-ripple-light="true" type="button" class="select-none rounded-lg  text-white hover:bg-white hover:text-[#176abc] bg-[#176abc] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-black/25 transition-all hover:border hover:border-[#176abc] focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
                         VOIR PLUS
                       </button>
                     </div>
                 </div>
 
 
-                <div class="relative flex w-65 flex-col rounded-xl  border-[#176abc] border-1 text-[#176abc]  shadow-md">
-                    <div class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl border-1 border-[#176abc] bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-white transform transition-all duration-300 hover:-translate-y-4">
+                
+                <div class="relative flex w-90  shadow-black/50 flex-col rounded-2xl bg-white  text-black shadow-sm transform transition-all duration-300 hover:-translate-y-7">
+                    <div class="relative mx-8 mt-8 h-35 overflow-hidden rounded-xl  bg-clip-border text-white   bg-white transform transition-all duration-300 hover:-translate-y-4">
                         <div class="w-full h-full flex justify-center items-center">
                           <img src="{{ asset('assets/img/doliprane 1000mg.png') }}" alt=""  width="200px"  class=" object-cover">
                         </div>
                       </div>
-                    <div class="p-6">
-                      <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                       Doliprane 1000mg
+                    <div class="px-8 py-5">
+                      <h5 class="mb-2 block text-[#176abc] font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                        Doliprane 1000mg
                       </h5>
                       <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.
                       </p>
                     </div>
-                    <div class="p-6 pt-0">
-                      <button data-ripple-light="true" type="button" class="select-none rounded-lg  bg-[#176abc] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray/20 transition-all hover:shadow-lg hover:shadow-blue-600/40 focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
+                    <div class="px-8 pt-0 pb-5">
+                        <button data-ripple-light="true" type="button" class="select-none rounded-lg  text-white hover:bg-white hover:text-[#176abc] bg-[#176abc] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-black/25 transition-all hover:border hover:border-[#176abc] focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
                         VOIR PLUS
                       </button>
                     </div>
                 </div>
 
 
-                <div class="relative flex w-65 flex-col rounded-xl bg-[#176abc]  border-blue-500 border-1 text-white shadow-md ">
-                    <div class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl border-1 border-blue-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-white transform transition-all duration-300 hover:-translate-y-4">
-                      <div class="w-full h-full flex justify-center items-center">
-                        <img src="{{ asset('assets/img/efferalgan-1-g-comprime-upsa.jpg') }}" alt=""  width="150px"  class=" object-cover">
+                
+
+                <div class="relative flex w-90  shadow-black/50 flex-col rounded-2xl bg-white  text-black shadow-sm transform transition-all duration-300 hover:-translate-y-7">
+                    <div class="relative mx-8 mt-8 h-35 overflow-hidden rounded-xl  bg-clip-border text-white   bg-white transform transition-all duration-300 hover:-translate-y-4">
+                        <div class="w-full h-full flex justify-center items-center">
+                          <img src="{{ asset('assets/img/efferalgan-1-g-comprime-upsa.jpg') }}" alt=""  width="200px"  class=" object-cover">
+                        </div>
                       </div>
-                    </div>
-                    <div class="p-6">
-                      <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal antialiased">
-                       Efferalgan 1000mg
+                    <div class="px-8 py-5">
+                      <h5 class="mb-2 block text-[#176abc] font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                        Efferalgan 1000mg
                       </h5>
                       <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.
                       </p>
                     </div>
-                    <div class="p-6 pt-0">
-                      <button data-ripple-light="true" type="button" class="select-none rounded-lg bg-[#44C244] py-3 px-6 border text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-[#44C244]/20 transition-all hover:shadow-lg hover:shadow-[#44C244]/40 focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
+                    <div class="px-8 pt-0 pb-5">
+                        <button data-ripple-light="true" type="button" class="select-none rounded-lg  text-white hover:bg-white hover:text-[#176abc] bg-[#176abc] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-black/25 transition-all hover:border hover:border-[#176abc] focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
                         VOIR PLUS
                       </button>
                     </div>
                 </div>
+                
             </div>
 
+            
+
 </section>
+
+
 
 <section>
     <div class="relative w-full ">
@@ -258,18 +269,18 @@
 </section>
 
 <!-- section services     -->
-<section class="bg-[#fafafa] mb-25 py-20" id="services">
+<section class="bg-[#fafafa] pb-0 pt-20" id="services">
     <h1 class="text-3xl text-center text-[#176abc] font-bold  font-[Poppins] ">Nos Services</h1>
     <span class="flex justify-center  p-10"><img src="{{ asset('assets/img/section-img.png') }}" alt="" class="flex justify-center "></span>
 
     <div class="w-[75%] m-auto mt-10 mb-5 flex mx-auto gap-5 flex-wrap justify-between">
-        <div class="w-60 h-90 border bg-white  border-[#176abc] rounded-3xl text-[#176abc] p-4 flex flex-col items-start justify-center gap-3 transition-all duration-300 hover:-translate-y-4 ">
-            <div class="w-52 h-40 bg-sky-300 rounded-2xl">
+        <div class="w-90 shadow-sm shadow-black/50 h-85  bg-white   rounded-3xl text-[#176abc] p-4 flex flex-col items-start justify-center gap-3 transition-all duration-300 hover:-translate-y-7 ">
+            <div class="w-80 h-40 bg-sky-300 rounded-2xl">
                 <img src="{{ asset('assets/img/portrait-woman-working-pharmaceutical-industry.jpg') }}" alt="" class="w-full h-full object-cover rounded-2xl">
             </div>
             <div class="">
                 <p class="font-extrabold">Commercialisation</p>
-                <p class="">Votre santé, notre engagement. Des solutions pharmaceutiques fiables pour vous aider à vous sentir mieux, chaque jour.</p>
+                <p class="text-black">Votre santé, notre engagement. Des solutions pharmaceutiques fiables pour vous aider à vous sentir mieux, chaque jour.</p>
             </div>
             <div class="flex items-center ">
                 <div class="text-yellow-400">★★★★</div>
@@ -278,13 +289,13 @@
             </div>
         </div>
 
-        <div class="w-60 h-90 border bg-white  border-[#176abc] rounded-3xl text-[#176abc] p-4 flex flex-col items-start justify-center gap-3 transition-all duration-300 hover:-translate-y-4 ">
-            <div class="w-52 h-40 bg-sky-300 rounded-2xl">
+        <div class="w-90 h-85 shadow-sm shadow-black/50 bg-white   rounded-3xl text-[#176abc] p-4 flex flex-col items-start justify-center gap-3 transition-all duration-300 hover:-translate-y-7 ">
+            <div class="w-80 h-40 bg-sky-300 rounded-2xl">
                 <img src="{{ asset('assets/img/close-up-delivery-person-giving-parcel-client.jpg') }}" alt="" class="w-full h-full object-cover rounded-2xl">
             </div>
             <div class="">
                 <p class="font-extrabold">Livraison</p>
-                <p class="">La pharmacie vient à vous ! Commandez en ligne et recevez vos médicaments. Gain de temps et tranquillité d'esprit garantis."</p>
+                <p class="text-black">La pharmacie vient à vous ! Commandez en ligne et recevez vos médicaments. Gain de temps et tranquillité d'esprit garantis."</p>
             </div>
             <div class="flex items-center ">
                 <div class="text-yellow-400">★★★</div>
@@ -293,13 +304,13 @@
             </div>
         </div>
 
-        <div class="w-60 h-90 border bg-white border-[#176abc] rounded-3xl text-[#176abc] p-4 flex flex-col items-start justify-center gap-3 transition-all duration-300 hover:-translate-y-4 ">
-            <div class="w-52 h-40 bg-sky-300 rounded-2xl">
+        <div class="w-90 h-85 shadow-sm shadow-black/50  bg-white  rounded-3xl text-[#176abc] p-4 flex flex-col items-start justify-center gap-3 transition-all duration-300 hover:-translate-y-7 ">
+            <div class="w-80 h-40 bg-sky-300 rounded-2xl">
                 <img src="{{ asset('assets/img/happy-african-american-doctor-with-headset-working-laptop-her-office.jpg') }}" alt="" class="w-full h-full object-cover rounded-2xl">
             </div>
             <div class="">
                 <p class="font-extrabold">Consultation</p>
-                <p class=""> Bénéficiez d'une consultation en ligne pratique et connectez-vous avec nos experts où que vous soyez.</p>
+                <p class="text-black"> Bénéficiez d'une consultation en ligne pratique et connectez-vous avec nos experts où que vous soyez.</p>
             </div>
             <div class="flex items-center ">
                 <div class="text-yellow-400">★★★★</div>
@@ -313,14 +324,26 @@
 
 </section>
 
+
+<!-- separation -->
+<section>
+    <div class="relative w-full my-25">
+        <img src="{{ asset('assets/img/fun-bg.jpg') }}" alt="" class="object-cover h-40 w-full">
+        <div class="bg-[#176abc]/75 w text-white flex items-center font-semibold text-2xl h-40 absolute w-full top-0 z-1">
+             <div class="flex w-[75%] mx-auto justify-between">
+                <div class="compteur-container flex items-center gap-4">
+                    
+                  </div>
+             </div>
+        </div>
+    </div>
+</section>
+
 <!-- section temoignage -->
 
 <section>
     <h1 class="text-3xl mb-5 text-center text-[#176abc] font-bold  font-[Poppins] ">Temoignages</h1>
     <span class="flex justify-center p-5"><img src="{{ asset('assets/img/section-img.png') }}" alt="" class="flex justify-center "></span>
-
-    <h4 class="text-2xl text-center font-bold text-[#44c244]">Ce Que Disent Nos Clients</h4> <br>
-
 
     <!-- This is an example component -->
     <div class="my-5 mx-auto">
