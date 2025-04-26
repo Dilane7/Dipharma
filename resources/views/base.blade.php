@@ -15,8 +15,8 @@
 
 </head>
 <body>
-    <header class="bg-white w-full left-0 md:fixed top-0 z-10" >
-        <nav class="flex justify-between w-[75%] items-center mx-auto pt-1">
+    <header class="bg-white w-full left-0 md:fixed top-0  z-5" >
+        <nav class="flex justify-between w-[75%]  items-center mx-auto pt-1">
             <div>
                 <img src="{{ asset('assets/img/Logo dilane 1.png') }}" alt="" class="h-auto w-22 cursor-pointer max-w-full py-2">
             </div>
@@ -45,12 +45,24 @@
                     </ul>
             </div>
             <div class="flex gap-5 items-center">
-                <div class="flex justify-center ">
-                    <a href="{{ route('login') }}" class="flex bg-[#176abc] rounded-xl shadow-[gray] shadow-sm text-white active:bg-[#176abc] focus:outline-[#176abc] focus:outline-2 focus:outline-offset-2 font-semibold gap-1 hover:bg-[#0398dd] hover:outline-2 px-2 py-[5px]">
-                        <img src="{{ asset('assets/img/add-user.png') }}" alt="" class="h-[20px] w-[20px]">
-                        Se connecter
-                    </a>
-                </div>
+                @guest
+                    <div class="flex justify-center ">
+                        <a href="{{ route('login') }}" class="flex bg-[#176abc] rounded-xl shadow-[gray] shadow-sm text-white active:bg-[#176abc] focus:outline-[#176abc] focus:outline-2 focus:outline-offset-2 font-semibold gap-1 hover:text-[#176abc] hover:border hover:border-[#176abc] hover:bg-white hover:outline-2 px-2 py-[5px]">
+                            <img src="{{ asset('assets/img/add-user.png') }}" alt="" class="h-[20px] w-[20px]">
+                            Se connecter
+                        </a>
+                    </div>
+                @endguest
+                @auth
+                    @role('client')
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="flex bg-[red] rounded-xl shadow-[gray] shadow-sm text-white active:bg-[red] focus:outline-[red] focus:outline-2 focus:outline-offset-2 font-semibold gap-1 hover:border hover:text-[red] hover:border-[red] hover:bg-white hover:outline-2 px-2 py-[5px]" href="#" data-toggle="modal" data-target="#logoutModal">
+                            Se déconnecter
+                        </button>
+                    </form>
+                    @endrole
+                @endauth
                 <ion-icon onclick="onToggleMenu(this)" name="menu-outline" class="text-[#176abc] text-5xl cursor-pointer md:hidden"></ion-icon>
             </div>
         </nav>

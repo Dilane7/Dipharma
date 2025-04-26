@@ -117,7 +117,7 @@
                 </div>
             </li>
 
-
+            @role('admin')
              <!-- Nav Item - Gestion utilisateur Menu -->
              <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -134,7 +134,7 @@
                     </div>
                 </div>
             </li>
-
+            @endrole
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -315,10 +315,7 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
+                                
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log

@@ -34,6 +34,7 @@ class AuthController extends Controller
             'est_actif' => 1, // Par défaut, l'utilisateur est actif
             'password' => Hash::make($request->password),
         ]);
+        $user->assignRole('client');
 
         // Ne pas connecter automatiquement l'utilisateur
         // Auth::login($user);
@@ -56,11 +57,29 @@ class AuthController extends Controller
         $credentials = $request->validated();
         $remember = $request->boolean('remember'); // Récupère la valeur du "se souvenir de moi"
 
+        
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
+            $user = Auth::user();
 
-            return redirect()->intended(route('welcomeAdmin'));
+            if ($user->hasRole('admin') || $user->hasRole('employe')) {
+                // Si admin ou employe, redirige vers le dashboard admin/employe
+                // intended() est bien ici : si l'utilisateur essayait d'accéder à une page protégée avant login, il y sera redirigé.
+                // Sinon, il ira vers 'welcomeAdmin'.
+                return redirect()->intended(route('welcomeAdmin'));
+            }  elseif ($user->hasRole('client')) {
+                // Si client, redirige vers la page d'accueil client
+                // Change 'welcome' par le nom de ta route pour l'accueil client si différent
+                // Tu peux aussi rediriger vers '/' ou une route 'client.dashboard' etc.
+                return redirect()->intended(route('welcome')); // Utilise le nom de ta route d'accueil principale/client
+
+            } else {
+                // Fallback (au cas où un utilisateur connecté n'aurait aucun des rôles attendus)
+                // Redirige vers une page par défaut pour les connectés ou la page d'accueil
+                 return redirect()->intended(route('welcome')); // Ou une route 'dashboard' générique
+            }
         }
+
 
         return back()->withErrors([
             'email' => 'Les informations d\'identification fournies ne correspondent pas à nos enregistrements.',
