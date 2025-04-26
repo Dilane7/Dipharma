@@ -140,4 +140,49 @@ class UserController extends Controller
 
     // Vous pouvez ajouter ici d'autres méthodes pour la gestion du profil utilisateur non-admin
     // comme afficher/modifier le profil, etc.
+
+    /**
+     * Affiche le formulaire d'édition du profil de l'utilisateur connecté.
+     */
+    public function editProfile(): View
+    {
+        $user = auth()->user();
+        return view('users.edit_profile', compact('user'));
+    }
+
+    /**
+     * Met à jour les informations du profil de l'utilisateur connecté.
+     */
+    public function updateProfile(Request $request): RedirectResponse
+    {
+        $user = auth()->user();
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'telephone' => 'nullable|string|max:20',
+            'photo' => 'nullable|image|max:2048',
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+
+        $userData = $request->only(['name', 'telephone', 'email']);
+
+        if ($request->filled('password')) {
+            $userData['password'] = Hash::make($request->password);
+        }
+
+        if ($request->hasFile('photo')) {
+            // Supprimer l'ancienne photo si elle existe
+            if ($user->photo && \Storage::disk('public')->exists($user->photo)) {
+                \Storage::disk('public')->delete($user->photo);
+            }
+            $userData['photo'] = $request->file('photo')->store('users', 'public');
+        }
+
+        $user->update($userData);
+
+        return redirect()->route('profile.edit')->with('success', 'Votre profil a été mis à jour avec succès.');
+    }
+    
 }
+
