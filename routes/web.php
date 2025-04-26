@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,4 +47,15 @@ Route::middleware('auth')->prefix('products')->name('products.')->group(function
     Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('edit');
     Route::put('/{product}', [ProductController::class, 'update'])->name('update');
     Route::delete('/{product}', [ProductController::class, 'destroy'])->name('destroy');
+});
+
+
+Route::middleware('auth')->prefix('users')->name('users.')->group(function () {
+    Route::get('/', [UserController::class, 'adminIndex'])->name('index');
+    Route::get('/create', [UserController::class, 'adminCreate'])->name('create');
+    Route::post('/', [UserController::class, 'adminStore'])->name('store');
+    Route::get('/{user}', [UserController::class, 'adminShow'])->name('show');
+    Route::get('/{user}/edit', [UserController::class, 'adminEdit'])->name('edit');
+    Route::put('/{user}', [UserController::class, 'adminUpdate'])->name('update');
+    Route::delete('/{user}', [UserController::class, 'adminDestroy'])->name('destroy');
 });

@@ -123,14 +123,14 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <img src="{{ asset('assets/img/utilisateur.png') }}" alt="" width="20px" class="img-fluid">
-                    <span>Gestion utilisateurs</span>
+                    <span >Gestion utilisateurs</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">utilisateurs</h6>
-                        <a class="collapse-item" href="utilities-color.html">Listes</a>
-                        <a class="collapse-item" href="utilities-border.html">Nouveaux</a>
+                        <a class="collapse-item" href="{{ route('users.index') }}">Listes</a>
+                        <a class="collapse-item" href="{{ route('users.create') }}">Nouveaux</a>
                     </div>
                 </div>
             </li>
@@ -304,9 +304,13 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->email }}</span>
-                                <img class="img-profile rounded-circle"
-                                    src="{{asset('assets/img/undraw_profile.svg')}}">
+                                <span class="mr-2 d-none d-lg-inline  medium" style="color: #176abc">{{ Auth::user()->email }}</span>
+                                @if (Auth::user()->photo)
+                                        <img src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ Auth::user()->name }}" class="rounded-circle" width="50" height="50">
+                                @else
+                                    <img class="img-profile rounded-circle"  src="{{asset('assets/img/undraw_profile.svg')}}">
+                                @endif
+                                    
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
