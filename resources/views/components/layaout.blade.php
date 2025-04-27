@@ -10,6 +10,8 @@
     <meta name="author" content="">
 
     <title>Dipharma - Dashboard</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/Logo dilane 2.png') }}">
+
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">

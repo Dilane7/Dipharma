@@ -1,5 +1,7 @@
 @extends('base')
 
+{{-- hero --}}
+
 <section class=" md:mt-24 bg-black">
     <div class="w-full md:h-150 overflow-hidden relative">
         <div class="flex carousel-slides duration-500 ease-in-out transition-transform">
@@ -45,8 +47,7 @@
     </div>
 </section>
 
-
-
+{{-- section card --}}
 
 <section class="" id="propos">
     <div class="w-full relative md:flex md:flex-row md:justify-between md:left-0 md:top-[-110] md:w-[75%] mx-auto sm:flex-column sm:justify-between" >
@@ -94,6 +95,7 @@
     </div>
 </section>
 
+{{-- apropos de nous --}}
 
 <section class="" >
     <div class="">
@@ -101,71 +103,72 @@
         <span class="flex justify-center p-5"><img src="{{ asset('assets/img/section-img.png') }}" alt="" class="flex justify-center py-4"></span>
         <h1 class="text-center pb-3 text-lg text-[#013b56]  font-[Poppins]">Des solutions santé discrètes et efficaces, livrées chez vous.</h1>
     </div>
-    <div class="md:flex md:justify-between items-center my-10 flex-column w-[60%] m-auto py-3">
+    <div class="md:flex md:justify-between items-center my-10 flex-column w-[60%] m-auto py-1">
         <div class="flex flex-col items-center">
             <div class="flex justify-center p-3 w-23 h-23 rounded-full overflow-hidden border-1 border-[#176abc]">
                 <img src="{{ asset('assets/img/healthcare.png') }}" class="" alt="">
             </div>
             <div>
-                <h2 class="text-center text-xl font-semibold">Pharmacie Enrichie</h2>
+                <h2 class="text-center text-xl font-semibold mt-4">Pharmacie Enrichie</h2>
             </div>
         </div>
         <div class="md:block hidden">
-            <span class="text-[#176abc] text-3xl">............</span>
+            <span class="text-[#176abc] text-3xl"></span>
         </div>
         <div class="flex flex-col items-center">
             <div class="flex justify-center p-3 w-23 h-23 rounded-full overflow-hidden border-1 border-[#176abc] ">
                 <img src="{{ asset('assets/img/ambulance.png') }}" alt="">
             </div>
             <div>
-                <h2 class="text-center text-xl font-semibold">Livraison à domicile</h2>
+                <h2 class="text-center text-xl font-semibold mt-4">Livraison à domicile</h2>
             </div>
         </div>
         <div class="md:block hidden">
-            <span class="text-[#176abc] text-3xl ">............</span>
+            <span class="text-[#176abc] text-3xl "></span>
         </div>
         <div class="flex flex-col items-center">
             <div class="flex justify-center p-3 w-23 h-23 rounded-full overflow-hidden border-1 border-[#176abc]">
                 <img src="{{ asset('assets/img/sthetoscope.png') }}" alt="">
             </div>
             <div>
-                <h2 class="text-center text-xl font-semibold">Traitement médical</h2>
+                <h2 class="text-center text-xl font-semibold mt-4">Traitement médical</h2>
             </div>
         </div>
     </div>
 </section>
 
-<!-- separation compteur -->
+
+<!-- separation -->
 
 <section>
-    <div class="relative w-full mb-0 mt-25">
+    <div class="relative w-full my-25">
         <img src="{{ asset('assets/img/fun-bg.jpg') }}" alt="" class="object-cover h-60 w-full">
         <div class="bg-[#176abc]/75 w text-white flex items-center font-semibold text-2xl h-60 absolute w-full top-0 z-1">
-             <div class="flex w-[75%] mx-auto justify-between">
+            <div class="flex w-[75%] mx-auto justify-between">
                 <div class="compteur-container flex items-center gap-4">
-                    <img src="{{ asset('assets/img/bonheur.png') }}" alt="" class="w-17 h-17">
+                    <img src="{{ asset('assets/img/free-delivery.png') }}" alt="" class="w-17 h-17">
                     <div >
-                        <div class="text-4xl"><span id="compteur1" >0</span><span>+</span></div>
-                        <div class="text-md"></div>
+                        <div class="text-2xl"> Livraison Gratuite</div>
+                        <div class="text-sm"> commande supérieure à 20.000f </div>
                     </div>
-                  </div>
+                </div>
 
-                  <div class="compteur-container flex items-center gap-4">
-                    <img src="{{ asset('assets/img/bonheur.png') }}" alt="" class="w-17 h-17">
+                <div class="compteur-container flex items-center gap-4">
+                    <img src="{{ asset('assets/img/credit-card.png') }}" alt="" class="w-17 h-17">
                     <div >
-                        <div class="text-4xl"><span id="compteur2" >0</span><span>+</span></div>
-                        <div class="text-md">Clients Hereux</div>
+                        <div class="text-2xl">Payement Rapide</span></div>
+                        <div class="text-sm">100% Securisé</div>
                     </div>
-                  </div>
+                </div>
 
-                  <div class="compteur-container flex items-center gap-4">
-                    <img src="{{ asset('assets/img/bonheur.png') }}" alt="" class="w-17 h-17">
+                <div class="compteur-container flex items-center gap-4">
+                    <img src="{{ asset('assets/img/headset.png') }}" alt="" class="w-17 h-17">
                     <div >
-                        <div class="text-4xl"><span id="compteur3" >0</span><span>+</span></div>
-                        <div class="text-md"></div>
+                        <div class="text-2xl">Assistance 24/7</div>
+                        <div class="text-sm">à Votre Service</div>
                     </div>
-                  </div>
-             </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -253,7 +256,7 @@
 
 </section>
 
-
+{{-- seprateur nous contacter --}}
 
 <section>
     <div class="relative w-full ">
@@ -269,6 +272,7 @@
 </section>
 
 <!-- section services     -->
+
 <section class="bg-[#fafafa] pb-0 pt-20" id="services">
     <h1 class="text-3xl text-center text-[#176abc] font-bold  font-[Poppins] ">Nos Services</h1>
     <span class="flex justify-center  p-10"><img src="{{ asset('assets/img/section-img.png') }}" alt="" class="flex justify-center "></span>
@@ -324,17 +328,37 @@
 
 </section>
 
+<!-- separation compteur -->
 
-<!-- separation -->
 <section>
-    <div class="relative w-full my-25">
-        <img src="{{ asset('assets/img/fun-bg.jpg') }}" alt="" class="object-cover h-40 w-full">
-        <div class="bg-[#176abc]/75 w text-white flex items-center font-semibold text-2xl h-40 absolute w-full top-0 z-1">
-             <div class="flex w-[75%] mx-auto justify-between">
+    <div class="relative w-full mb-0 mt-25">
+        <img src="{{ asset('assets/img/fun-bg.jpg') }}" alt="" class="object-cover h-60 w-full">
+        <div class="bg-[#176abc]/75 w text-white flex items-center font-semibold text-2xl h-60 absolute w-full top-0 z-1">
+            <div class="flex w-[75%] mx-auto justify-between">
                 <div class="compteur-container flex items-center gap-4">
-                    
-                  </div>
-             </div>
+                    <img src="{{ asset('assets/img/pharmacy (1).png') }}" alt="" class="w-17 h-17">
+                    <div >
+                        <div class="text-4xl"><span id="compteur1" >0</span><span>+</span></div>
+                        <div class="text-md">Produits disponibles </div>
+                    </div>
+                </div>
+
+                <div class="compteur-container flex items-center gap-4">
+                    <img src="{{ asset('assets/img/bonheur.png') }}" alt="" class="w-17 h-17">
+                    <div >
+                        <div class="text-4xl"><span id="compteur2" >0</span><span>+</span></div>
+                        <div class="text-md">Clients satisfaits</div>
+                    </div>
+                </div>
+
+                <div class="compteur-container flex items-center gap-4">
+                    <img src="{{ asset('assets/img/checkout.png') }}" alt="" class="w-17 h-17">
+                    <div >
+                        <div class="text-4xl"><span id="compteur3" >0</span><span>+</span></div>
+                        <div class="text-md">Commandes livrées</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -342,7 +366,7 @@
 <!-- section temoignage -->
 
 <section>
-    <h1 class="text-3xl mb-5 text-center text-[#176abc] font-bold  font-[Poppins] ">Temoignages</h1>
+    <h1 class="text-3xl mb-5 pt-15 text-center text-[#176abc] font-bold  font-[Poppins] ">Temoignages</h1>
     <span class="flex justify-center p-5"><img src="{{ asset('assets/img/section-img.png') }}" alt="" class="flex justify-center "></span>
 
     <!-- This is an example component -->

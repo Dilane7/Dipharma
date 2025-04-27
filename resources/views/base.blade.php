@@ -53,17 +53,49 @@
                         </a>
                     </div>
                 @endguest
+               
                 @auth
                     @role('client')
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="flex bg-[red] rounded-xl shadow-[gray] shadow-sm text-white active:bg-[red] focus:outline-[red] focus:outline-2 focus:outline-offset-2 font-semibold gap-1 hover:border hover:text-[red] hover:border-[red] hover:bg-white hover:outline-2 px-2 py-[5px]" href="#" data-toggle="modal" data-target="#logoutModal">
-                            Se déconnecter
+                        <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex items-center text-sm pe-1 font-medium text-white rounded-lg hover:text-blue-600 dark:hover:text-blue-500 md:me-0    dark:text-gray-900" type="button">
+                            <img src="{{ asset('assets/img/shopping-cart.png') }}" class="me-4" alt="panier">
+                            <Span class="text-lg me-3 text-[#176abc]">{{ Auth::user()->email }}</Span>
+                            
+                            @if (Auth::user()->photo)
+                            <img src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ Auth::user()->name }}" alt="user photo" class="rounded-full w-12 h-12" >
+                            @else
+                                <img class="img-profile rounded-circle w-12 h-12" alt="user photo"  src="{{asset('assets/img/undraw_profile.svg')}}">
+                            @endif
                         </button>
-                    </form>
+                    
+                        <!-- Dropdown menu -->
+                        <div id="dropdownAvatarName" class="z-10 hidden bg-gray-800 divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-white dark:divide-[#44C244]">
+                            <div class="px-4 py-3 text-sm text-white dark:text-gray-900">
+                                <div class="font-bold ">{{ Auth::user()->name }}</div>
+                                <div class="truncate">{{ Auth::user()->telephone }}</div>
+                            </div>
+                            <ul class="py-2 text-md text-white  dark:text-[#176abc]" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                                <li>
+                                    <a href="#" class="block font-bold text-md px-4 py-2  hover:bg-[#176abc] dark:hover:bg-[#176abc] dark:hover:text-white">Profil</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block font-bold text-md px-4 py-2  hover:bg-[#176abc] dark:hover:bg-[#176abc] dark:hover:text-white">carte</a>
+                                </li>
+                            </ul>
+                            
+                                
+                                <form method="POST" action="{{ route('logout') }}">
+                                    <div class="py-2">
+                                        @csrf
+                                    <button type="submit" class="block font-bold px-7 py-2 text-md text-white hover:bg-gray-100 dark:hover:bg-[red] dark:text-[red] dark:hover:text-white">Se deconnecter</button>
+                                    </div>
+                                </form>
+                                
+                            
+                        </div>
                     @endrole
                 @endauth
                 <ion-icon onclick="onToggleMenu(this)" name="menu-outline" class="text-[#176abc] text-5xl cursor-pointer md:hidden"></ion-icon>
+                
             </div>
         </nav>
     </header>
@@ -104,6 +136,12 @@
             <div>
                 <h1 class="text-xl  mb-3">Horaire</h1>
                 <img src="{{ asset('assets/img/Rectangle 28.png') }}" alt="" class="w-15 mb-5">
+                <p class="mb-2">
+                    Nos services sont disponibles !! <br>
+                    Nous restons à votre écoute pour <br>
+                    répondre à vos besoins à tout <br>
+                    moment durant nos horaires d'ouverture.
+                </p>
                 <p class="text-lg ">Lundi-Vendredi <span class="text-white">...........</span>   7h00-22h30</p>
                 <p class="text-lg ">Samedi-Dimanche <span class="text-white">.......</span>   7h00-22h30</p>
 
