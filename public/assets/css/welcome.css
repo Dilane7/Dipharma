@@ -50,3 +50,23 @@
     color: white;
     transform: rotateY(180deg);
   }
+
+   /*Button*/
+ .card-button {
+    border: 1px solid #252525;
+    display: flex;
+    padding: .4em;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: .3s ease-in-out;
+   }
+   
+   /*Hover*/
+   .card-img:hover {
+    transform: translateY(-25%);
+   }
+   
+   .card-button:hover {
+    border: 1px solid #44C244;
+    background-color: #44C244;
+   }

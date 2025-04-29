@@ -17,7 +17,7 @@
                 <dd class="col-sm-9">{{ $product->description ?? '-' }}</dd>
 
                 <dt class="col-sm-3">Quantité :</dt>
-                <dd class="col-sm-9">{{ $product->quantite }}</dd>
+                <dd class="col-sm-9">{{ $product->quantity }}</dd>
 
                 <dt class="col-sm-3">Prix :</dt>
                 <dd class="col-sm-9">{{ number_format($product->prix, 2) }}</dd>

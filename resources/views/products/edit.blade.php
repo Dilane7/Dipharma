@@ -39,9 +39,9 @@
 
             <div class="mb-3 d-flex justify-content-between w-100 mx-auto">
                 <div class="w-50 mr-3">
-                    <label for="quantite" class="form-label">Quantité</label>
-                    <input type="number" class="form-control @error('quantite') is-invalid @enderror" id="quantite" name="quantite" value="{{ old('quantite', $product->quantite) }}" required min="0">
-                    @error('quantite')
+                    <label for="quantity" class="form-label">Quantité</label>
+                    <input type="number" class="form-control @error('quantity') is-invalid @enderror" id="quantity" name="quantity" value="{{ old('quantity', $product->quantity) }}" required min="0">
+                    @error('quantity')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

@@ -5,6 +5,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderControllerA;
+use App\Http\Controllers\OrderControllerC;
 
 Route::get('/', function () {
     return view('welcome');
@@ -64,4 +67,40 @@ Route::middleware('auth')->prefix('users')->name('users.')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [UserController::class, 'editProfile'])->name('profile.edit');
     Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('profile.update');
+});
+
+
+
+// Groupe de routes pour les clients (nécessite l'authentification et le rôle 'client')
+Route::middleware('auth')->group(function () {
+    // Affichage des produits
+    Route::get('/productsclient', [ProductController::class, 'indexClient'])->name('products.indexClient');
+
+    // Gestion du panier
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
+    Route::post('/cart/update/{product}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart/remove/{product}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::get('/orders/history', [OrderControllerC::class, 'history'])->name('orders.history');
+    Route::post('/orders/{order}/cancel', [OrderControllerC::class, 'cancel'])->name('orders.cancel');
+    Route::get('/orders/{order}/commande', [OrderControllerC::class, 'show'])->name('orders.showClient');
+
+    // Gestion des commandes
+    Route::get('/checkout', [OrderControllerC::class, 'checkout'])->name('orders.checkout');
+    Route::post('/orders/place', [OrderControllerC::class, 'placeOrder'])->name('orders.place');
+    Route::get('/orders/thankyou', [OrderControllerC::class, 'thankyou'])->name('orders.thankyou');
+});
+
+// Groupe de routes pour l'administrateur (nécessite l'authentification et le rôle 'admin', préfixé par 'admin')
+Route::middleware('auth')->group(function () {
+    
+    // Gestion des commandes
+    Route::get('/orders/pending', [OrderControllerA::class, 'pendingOrders'])->name('orders.pending');
+    Route::get('/orders/{order}/validate', [OrderControllerA::class, 'validateOrder'])->name('orders.validate');
+    Route::get('/orders/{order}', [OrderControllerA::class, 'show'])->name('orders.show');
+    Route::get('/orders_validated', [OrderControllerA::class, 'validatedOrders'])->name('orders.validatedOrders');
+
+    // Vous pouvez ajouter ici d'autres routes pour la gestion des commandes (e.g., afficher le détail d'une commande, marquer comme expédiée, annulée, etc.)
+    // Exemple pour afficher le détail d'une commande :
+    // Route::get('/orders/{order}', [AdminOrderController::class, 'show'])->name('admin.orders.show');
 });

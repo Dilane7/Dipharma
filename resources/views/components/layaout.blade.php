@@ -80,11 +80,24 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - commandes -->
+            
+
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
+                    aria-expanded="true" aria-controls="collapseFour">
                     <img src="{{ asset('assets/img/ordre.png') }}" alt="" width="20px" class="img-fluid">
-                    <span>Commandes</span></a>
+
+                    <span>Commandes</span>
+                </a>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingTree" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Commandes :</h6>
+                        <a class="collapse-item" href="{{ route('orders.pending') }}">En attentes</a>
+                        <a class="collapse-item" href="{{ route('orders.validatedOrders') }}">Validées</a>
+                    </div>
+                </div>
             </li>
+
 
             <!-- Nav Item - Produits Menu -->
             <li class="nav-item">

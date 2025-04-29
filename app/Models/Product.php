@@ -16,7 +16,7 @@ class Product extends Model
         'name',
         'description',
         'prix',
-        'quantite',
+        'quantity',
         'dosage',
         'expiration_date',
         'image',
@@ -51,6 +51,11 @@ class Product extends Model
         } else { // 3 mois et plus
             return 'bg-success';
         }
+    }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
     }
 }
 

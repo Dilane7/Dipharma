@@ -45,7 +45,7 @@
                                 </td>
                                 <td style="color: #176abc">{{ $product->name }}</td>
                                 <td>{{ $product->categorie->name }}</td>
-                                <td>{{ $product->quantite }}</td>
+                                <td>{{ $product->quantity }}</td>
                                 <td>{{ $product->prix }}</td>
                                 <td>{{ $product->dosage ?? '-' }}</td>
                                 <td class="">

@@ -112,4 +112,14 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')->with('success', 'Produit supprimé avec succès.');
     }
+
+    /**
+     * Affiche la liste des produits disponibles pour les clients.
+     */
+    public function indexClient(): View
+    {
+        $products = Product::where('is_available', true)->latest()->paginate(12);
+        return view('products.indexClient', compact('products'));
+    }
+
 }

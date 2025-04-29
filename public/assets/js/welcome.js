@@ -1,3 +1,5 @@
+
+
 const navlinks = document.querySelector('.nav-links')
         function onToggleMenu(e){
             e.name = e.name === 'menu-outline' ? 'close' : 'menu-outline'
@@ -76,3 +78,6 @@ const navlinks = document.querySelector('.nav-links')
     creerCompteur('compteur1', 1244, 10); // Compteur 1 s'arrête à 5, incrémente chaque seconde
     creerCompteur('compteur2', 1750, 10); // Compteur 2 s'arrête à 15, incrémente toutes les demi-secondes
     creerCompteur('compteur3', 1323, 10); // Compteur 3 s'arrête à 10, incrémente toutes les deux secondes
+
+
+    
