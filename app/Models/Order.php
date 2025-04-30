@@ -29,4 +29,17 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
+    // Add this method
+    public function invoice()
+    {
+        return $this->hasOne(Invoice::class);
+    }
+
+// IMPORTANT: Add your existing relationship to Order Lines/Items here
+// Example:
+// public function orderLines()
+// {
+//     return $this->hasMany(OrderLine::class);
+// }
 }

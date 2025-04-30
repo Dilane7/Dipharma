@@ -46,6 +46,16 @@
                                 <td class="text-end d-flex gap-2">
                                     <a href="{{ route('orders.show', $order) }}" class="btn text-info "><i class='fas fa-eye' style='font-size:17px'></i></a>
                                     <a href="{{ route('orders.validate', $order) }}" class="btn  "><i class="fa fa-check" style="font-size:17px;color: rgb(65, 245, 65)"></i></a>
+                                    {{-- Add this condition and button --}}
+                                    @if(!$order->invoice && in_array($order->status, ['en attente', 'shipped', 'processing'])) {{-- Adjust statuses as needed --}}
+                                    <a href="{{ route('invoices.createFromOrder', $order) }}" class="btn btn-sm btn-outline-primary" title="Créer Facture">
+                                        <i class="bi bi-receipt"></i> Créer Facture
+                                    </a>
+                                    @elseif($order->invoice)
+                                        <a href="{{ route('invoices.show', $order->invoice) }}" class="btn btn-sm btn-outline-success" title="Voir Facture">
+                                            <i class="bi bi-receipt-cutoff"></i> Voir Facture
+                                        </a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

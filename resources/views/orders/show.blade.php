@@ -1,7 +1,7 @@
 <x-layaout>
     <div class="container mt-5">
         <h1>Détails de la Commande #{{ $order->id }}</h1>
-
+        @include('partials.alerts')
         <div class="card mb-4">
             <div class="card-header">
                 Informations de la Commande

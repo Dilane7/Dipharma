@@ -8,6 +8,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderControllerA;
 use App\Http\Controllers\OrderControllerC;
+use App\Http\Controllers\ProductLookupController;
+use App\Http\Controllers\InvoiceController; // Ensure this line exists and the class is correctly defined in your project
+use App\Http\Controllers\AdminDashboardController;// Ensure this controller exists in the specified namespace
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,14 +30,12 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/welcomeAdmin', function () {
-        return view('welcomeAdmin');
-    })->name('welcomeAdmin');
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 
-Route::middleware('auth')->prefix('categories')->name('categories.')->group(function () {
+Route::middleware(['auth'])->prefix('categories')->name('categories.')->group(function () {
     Route::get('/', [CategorieController::class, 'index'])->name('index');
     Route::post('/', [CategorieController::class, 'store'])->name('store');
     Route::get('/{categorie}/edit', [CategorieController::class, 'edit'])->name('edit');
@@ -93,7 +94,7 @@ Route::middleware('auth')->group(function () {
 
 // Groupe de routes pour l'administrateur (nécessite l'authentification et le rôle 'admin', préfixé par 'admin')
 Route::middleware('auth')->group(function () {
-    
+
     // Gestion des commandes
     Route::get('/orders/pending', [OrderControllerA::class, 'pendingOrders'])->name('orders.pending');
     Route::get('/orders/{order}/validate', [OrderControllerA::class, 'validateOrder'])->name('orders.validate');
@@ -103,4 +104,21 @@ Route::middleware('auth')->group(function () {
     // Vous pouvez ajouter ici d'autres routes pour la gestion des commandes (e.g., afficher le détail d'une commande, marquer comme expédiée, annulée, etc.)
     // Exemple pour afficher le détail d'une commande :
     // Route::get('/orders/{order}', [AdminOrderController::class, 'show'])->name('admin.orders.show');
+});
+
+
+
+Route::middleware('auth')->group(function () {
+    // Dashboard or other admin routes
+    // Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+    // Invoice Routes
+    Route::resource('invoices', InvoiceController::class);
+    Route::get('orders/{order}/create-invoice', [InvoiceController::class, 'createFromOrder'])->name('invoices.createFromOrder');
+
+    // Route for AJAX product lookup
+    Route::get('products/lookup/{product}', [ProductLookupController::class, 'lookup'])->name('products.lookup');
+
+    // Assuming you have Order routes, add a place to link invoice creation
+    // Example within your order resource routes or list view
 });

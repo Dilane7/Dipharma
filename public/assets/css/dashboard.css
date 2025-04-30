@@ -1,0 +1,15 @@
+.card .fs-1 {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.card .fs-4 {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.st{
+    font-size: 20px;
+    font-weight: bold;
+    color: #176abc;
+}

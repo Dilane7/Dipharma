@@ -57,6 +57,12 @@ class Product extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
+    // Add this method
+public function invoiceLines()
+{
+    return $this->hasMany(InvoiceLine::class);
+}
 }
 
 

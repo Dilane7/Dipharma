@@ -1,5 +1,5 @@
 <x-layaout>
-    
+
     <div class="px-5 bg-light">
         <h2 class="mb-4" style="color: #176abc">Gestion des Produits</h2>
 
@@ -63,12 +63,12 @@
                                     </span>
                                 </td>
                                 <td class="text-end">
-                                    <a href="{{ route('products.show', $product) }}" class="btn btn-sm "><i class='fas fa-eye' style='font-size:17px;color:#176abc'></i></a>
-                                    <a href="{{ route('products.edit', $product) }}" class="btn btn-sm "><i class='fas fa-pencil-alt' style='font-size:18px;color:orange'></i></a>
+                                    <a href="{{ route('products.show', $product) }}" title="voir" class="btn btn-sm "><i class='fas fa-eye' style='font-size:17px;color:#176abc'></i></a>
+                                    <a href="{{ route('products.edit', $product) }}" title="modifier" class="btn btn-sm "><i class='fas fa-pencil-alt' style='font-size:18px;color:orange'></i></a>
                                     <form action="{{ route('products.destroy', $product) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm " onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')"><i class='fas fa-trash-alt' style='font-size:17px;color:red'></i></button>
+                                        <button type="submit" class="btn btn-sm " title="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')"><i class='fas fa-trash-alt' style='font-size:17px;color:red'></i></button>
                                     </form>
                                 </td>
                             </tr>

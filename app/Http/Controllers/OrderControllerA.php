@@ -36,15 +36,15 @@ class OrderControllerA extends Controller
         if ($order->status === 'en attente') {
             $orderItems = $order->orderItems;
 
-            foreach ($orderItems as $item) {
-                $product = $item->product;
-                // Vérifier s'il y a suffisamment de stock avant de déduire
-                if ($product->quantity >= $item->quantity) {
-                    $product->decrement('quantity', $item->quantity);
-                } else {
-                    return back()->with('error', "Le stock est insuffisant pour le produit '{$product->name}' de la commande #{$order->id}.");
-                }
-            }
+            // foreach ($orderItems as $item) {
+            //     $product = $item->product;
+            //     // Vérifier s'il y a suffisamment de stock avant de déduire
+            //     if ($product->quantity >= $item->quantity) {
+            //         $product->decrement('quantity', $item->quantity);
+            //     } else {
+            //         return back()->with('error', "Le stock est insuffisant pour le produit '{$product->name}' de la commande #{$order->id}.");
+            //     }
+            // }
 
             $order->update(['status' => 'validée']);
             return redirect()->route('orders.pending')->with('success', "La commande #{$order->id} a été validée et le stock a été déduit.");

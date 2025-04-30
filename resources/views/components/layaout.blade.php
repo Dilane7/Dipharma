@@ -18,10 +18,15 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
 
     <!-- Custom styles for this template-->
     <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
-    
+    <link rel="stylesheet" href="{{ asset('assets/css/print.css') }}" type="application/atom+xml" title="Atom">
+      <!-- ====> Bootstrap Icons CSS <==== -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
 
 </head>
 
@@ -46,7 +51,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link " href="{{ route('welcomeAdmin') }}">
+                <a class="nav-link " href="{{ route('dashboard') }}">
                     <img src="{{ asset('assets/img/categorie.png') }}" alt="" width="20px" class="img-fluid">
                     <span>Dashboard</span></a>
             </li>
@@ -80,7 +85,7 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - commandes -->
-            
+
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
@@ -110,8 +115,8 @@
                 <div id="collapseTree" class="collapse" aria-labelledby="headingTree" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Factures :</h6>
-                        <a class="collapse-item" href="">Tous</a>
-                        <a class="collapse-item" href="">Nouveaux</a>
+                        <a class="collapse-item" href="{{ route('invoices.index') }}">Tous</a>
+                        <a class="collapse-item" href="{{ route('invoices.create') }}">Nouveaux</a>
                     </div>
                 </div>
             </li>
@@ -325,7 +330,7 @@
                                 @else
                                     <img class="img-profile rounded-circle"  src="{{asset('assets/img/undraw_profile.svg')}}">
                                 @endif
-                                    
+
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -334,7 +339,7 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 "></i>
                                     Profile
                                 </a>
-                                
+
                                 <a class="dropdown-item text-primary" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 "></i>
                                     Activity Log
@@ -399,6 +404,8 @@
     <!-- Page level custom scripts -->
     <script src="{{asset('assets/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('assets/js/demo/chart-pie-demo.js')}}"></script>
+    <script src="{{ asset('assets/js/in.js') }}"></script>
+    <script src="{{ asset('assets/js/graph.js') }}"></script>
 
 </body>
 
