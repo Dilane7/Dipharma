@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductLookupController;
 use App\Http\Controllers\InvoiceController; // Ensure this line exists and the class is correctly defined in your project
 use App\Http\Controllers\AdminDashboardController;// Ensure this controller exists in the specified namespace
 use Spatie\Permission\Contracts\Role;
+use App\Http\Controllers\StockController; // Ensure this controller exists in the specified namespace
 
 Route::get('/', function () {
     return view('welcome');
@@ -80,6 +81,10 @@ Route::middleware('auth')->group(function () {
     Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('profile.update');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile/editClient', [UserController::class, 'editProfileC'])->name('profile.editC');
+    Route::put('/profile/updateClient', [UserController::class, 'updateProfileC'])->name('profile.updateC');
+});
 
 
 // Groupe de routes pour les clients (nécessite l'authentification et le rôle 'client')
@@ -129,6 +134,14 @@ Route::middleware('auth')->group(function () {
     // Route for AJAX product lookup
     Route::get('products/lookup/{product}', [ProductLookupController::class, 'lookup'])->name('products.lookup');
 
-    // Assuming you have Order routes, add a place to link invoice creation
-    // Example within your order resource routes or list view
+    // Gestion du stock
+    Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
+    Route::get('/products/{product}/stock/add', [StockController::class, 'addStock'])->name('stock.add');
+    Route::post('/products/{product}/stock/add', [StockController::class, 'storeAddStock'])->name('stock.storeAdd');
+    Route::get('/products/{product}/stock/remove', [StockController::class, 'removeStock'])->name('stock.remove');
+    Route::post('/products/{product}/stock/remove', [StockController::class, 'storeRemoveStock'])->name('stock.storeRemove');
+
+
+    
 });
+

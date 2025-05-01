@@ -64,7 +64,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Mettre à jour le profil</button>
-            <a href="{{ route('welcomeAdmin') }}" class="btn btn-secondary ms-2">Annuler</a>
+            <a href="{{ route('dashboard') }}" class="btn btn-secondary ms-2">Annuler</a>
         </form>
     </div>
 </x-layaout>

@@ -14,7 +14,7 @@
         </div>
     </div>
 </section>
-<div class="bg-gray-200 min-h-screen flex items-center  justify-center py-10">
+<div class="bg-gray-50 min-h-screen flex items-center  justify-center py-10">
     <div class="container w-[75%]  mx-auto">
         <h1 class="text-3xl font-semibold mb-6 text-[#176abc]"></h1>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">

@@ -183,6 +183,45 @@ class UserController extends Controller
 
         return redirect()->route('profile.edit')->with('success', 'Votre profil a été mis à jour avec succès.');
     }
+
+    public function editProfileC(): View
+    {
+        $user = auth()->user();
+        return view('users.edit_profil_client', compact('user'));
+    }
+
+
+    public function updateProfileC(Request $request): RedirectResponse
+    {
+        $user = auth()->user();
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'telephone' => 'nullable|string|max:20',
+            'photo' => 'nullable|image|max:2048',
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+
+        $userData = $request->only(['name', 'telephone', 'email']);
+
+        if ($request->filled('password')) {
+            $userData['password'] = Hash::make($request->password);
+        }
+
+        if ($request->hasFile('photo')) {
+            // Supprimer l'ancienne photo si elle existe
+            if ($user->photo && \Storage::disk('public')->exists($user->photo)) {
+                \Storage::disk('public')->delete($user->photo);
+            }
+            $userData['photo'] = $request->file('photo')->store('users', 'public');
+        }
+
+        $user->update($userData);
+
+        return redirect()->route('profile.editC')->with('success', 'Votre profil a été mis à jour avec succès.');
+    }
+    
     
 }
 

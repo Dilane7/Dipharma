@@ -80,7 +80,7 @@
                             </div>
                             <ul class="py-2 text-md text-white  dark:text-[#176abc]" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                                 <li>
-                                    <a href="#" class="block font-bold text-md px-4 py-2  hover:bg-[#176abc] dark:hover:bg-[#176abc] dark:hover:text-white">Profil</a>
+                                    <a href="{{ route('profile.editC') }}" class="block font-bold text-md px-4 py-2  hover:bg-[#176abc] dark:hover:bg-[#176abc] dark:hover:text-white">Profil</a>
                                 </li>
 
                                 <li>
