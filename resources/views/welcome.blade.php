@@ -6,11 +6,11 @@
 
 
 
-<section class=" md:mt-24 bg-black">
+<section class=" md:mt-24 ">
     <div class="w-full md:h-150  overflow-hidden relative">
         <div class="flex carousel-slides duration-500 ease-in-out transition-transform">
             <div class="flex-shrink-0 w-full carousel-slide">
-                <img src="{{ asset('assets/img/slider.jpg') }}" alt="Image 1" class="h-auto w-full object-cover">
+                <img src="{{ asset('assets/img/s1.png') }}" alt="Image 1" class="h-auto w-full object-cover">
             </div>
             <div class="flex-shrink-0 w-full carousel-slide">
                 <img src="{{ asset('assets/img/s2.png') }}" alt="Image 2" class="h-full w-full object-cover">

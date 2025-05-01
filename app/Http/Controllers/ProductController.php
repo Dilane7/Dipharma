@@ -32,6 +32,18 @@ class ProductController extends Controller
         
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $products = Product::where('name', 'like', "%{$query}%")
+                            ->orWhere('description', 'like', "%{$query}%")
+                            ->paginate(12)
+                            ->withQueryString(); // Conserve le terme de recherche dans les liens de pagination
+
+        return view('products.indexClient', compact('products'));
+    }
+
     /**
      * Affiche le formulaire de création d'un nouveau produit.
      */
