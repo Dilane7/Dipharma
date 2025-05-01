@@ -60,13 +60,68 @@
     border-radius: 50px;
     transition: .3s ease-in-out;
    }
-   
+
    /*Hover*/
    .card-img:hover {
     transform: translateY(-25%);
    }
-   
+
    .card-button:hover {
     border: 1px solid #44C244;
     background-color: #44C244;
    }
+
+   #mobile-menu.menu-open {
+    transform: translateY(0);
+   }
+
+   @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0; /* Start hidden */
+  }
+  .animation-delay-100 { animation-delay: 0.1s; }
+  .animation-delay-200 { animation-delay: 0.2s; }
+  .animation-delay-300 { animation-delay: 0.3s; }
+  .animation-delay-400 { animation-delay: 0.4s; }
+  .animation-delay-500 { animation-delay: 0.9s; }
+/* --- Animation Fade In Left --- */
+@keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translate3d(-40px, 0, 0); /* Départ depuis la gauche */
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .animate-fadeInLeft {
+    animation: fadeInLeft 0.8s ease-out forwards;
+    opacity: 0; /* Commencer caché */
+  }
+
+  /* --- Animation Fade In Right --- */
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translate3d(40px, 0, 0); /* Départ depuis la droite */
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .animate-fadeInRight {
+    animation: fadeInRight 0.8s ease-out forwards;
+    opacity: 0; /* Commencer caché */
+  }

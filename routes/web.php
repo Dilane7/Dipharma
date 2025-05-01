@@ -11,6 +11,7 @@ use App\Http\Controllers\OrderControllerC;
 use App\Http\Controllers\ProductLookupController;
 use App\Http\Controllers\InvoiceController; // Ensure this line exists and the class is correctly defined in your project
 use App\Http\Controllers\AdminDashboardController;// Ensure this controller exists in the specified namespace
+use Spatie\Permission\Contracts\Role;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +20,15 @@ Route::get('/', function () {
 Route::get('/contacts', function () {
     return view('contacts');
 })->name('contacts');
+Route::get('/a-propos', function () {
+    return view('apropos');
+})->name('apropos');
+
+Route::get('/services', function () {
+    return view('services');
+})->name('services');
+
+
 
 
 
@@ -35,7 +45,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::middleware(['auth'])->prefix('categories')->name('categories.')->group(function () {
+Route::middleware('auth')->prefix('categories')->name('categories.')->group(function () {
     Route::get('/', [CategorieController::class, 'index'])->name('index');
     Route::post('/', [CategorieController::class, 'store'])->name('store');
     Route::get('/{categorie}/edit', [CategorieController::class, 'edit'])->name('edit');

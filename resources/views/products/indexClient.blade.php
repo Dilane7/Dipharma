@@ -1,11 +1,25 @@
 @extends('base')
+@section('title', 'Nos Produits - Pharmacie Dipharma')
 @section('content')
-<div class="bg-gray-200 min-h-screen flex items-center mt-24 justify-center py-10">
+<section>
+    <div class="relative w-full mt-10">
+        <img src="{{ asset('assets/img/fun-bg.jpg') }}" alt="" class="object-cover h-80 w-full">
+        <div class="bg-[#176abc]/70 text-white  h-80 absolute w-full top-0 z-1 flex justify-center items-center">
+            <div class="animate-fadeInUp animate-delay-500">
+                <h1 class="font-semibold text-4xl">Nos Produits Disponibles</h1>
+                <span class="flex justify-center gap-2 my-2">
+                    <a href="index.html" class="hover:text-[#014c6e]">Acceuil</a> <span> >  Produits</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="bg-gray-200 min-h-screen flex items-center  justify-center py-10">
     <div class="container w-[75%]  mx-auto">
-        <h1 class="text-3xl font-semibold mb-6 text-[#176abc]">Nos Produits Disponibles</h1>
+        <h1 class="text-3xl font-semibold mb-6 text-[#176abc]"></h1>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
             @forelse ($products as $product)
-                <div class="bg-white shadow-md rounded-xl overflow-hidden hover:scale-105 transition-transform">
+                <div class="bg-white shadow-md animate-fadeInUp animate-delay-500 rounded-xl overflow-hidden hover:scale-105 transition-transform">
                     <div class="relative">
                         @if ($product->image)
                             <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-45 object-cover rounded-xl transition-transform hover:[transform:scale(0.92)]">
@@ -21,9 +35,9 @@
                     <div class="p-4">
                         <h5 class="text-xl font-semibold mb-1">{{ $product->name }}</h5>
                         <p class="text-gray-600 text-sm mb-1">{{ Str::limit($product->description, 100) }}</p>
-                        
+
                         <div class="flex items-center justify-between">
-                            <p class="text-[#176abc] text-sm font-bold">XAF  {{ $product->prix }} </p>
+                            <p class="text-green-500 text-sm font-bold">XAF  {{ $product->prix }} </p>
                             <form id="add-to-cart-form-{{ $product->id }}" action="{{ route('cart.add', $product) }}" method="POST" class="add-to-cart-form">
                                 @csrf
                                 {{-- <button type="button"  data-product-id="{{ $product->id }}" class="add-to-cart-button bg-[#176abc] hover:bg-white hover:border text-sm   hover:text-[#176abc] text-white py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline mt-1" {{ !$product->is_available ? 'disabled' : '' }}>
@@ -46,7 +60,7 @@
             {{ $products->links('vendor.pagination.tailwind') }}
         </div>
     </div>
-    
+
 </div>
 
 

@@ -57,7 +57,7 @@ class AuthController extends Controller
         $credentials = $request->validated();
         $remember = $request->boolean('remember'); // Récupère la valeur du "se souvenir de moi"
 
-        
+
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
             $user = Auth::user();
@@ -66,12 +66,12 @@ class AuthController extends Controller
                 // Si admin ou employe, redirige vers le dashboard admin/employe
                 // intended() est bien ici : si l'utilisateur essayait d'accéder à une page protégée avant login, il y sera redirigé.
                 // Sinon, il ira vers 'welcomeAdmin'.
-                return redirect()->intended(route('welcomeAdmin'));
+                return redirect()->intended(route('dashboard'));
             }  elseif ($user->hasRole('client')) {
                 // Si client, redirige vers la page d'accueil client
                 // Change 'welcome' par le nom de ta route pour l'accueil client si différent
                 // Tu peux aussi rediriger vers '/' ou une route 'client.dashboard' etc.
-                return redirect()->intended(route('welcome')); // Utilise le nom de ta route d'accueil principale/client
+                return redirect()->intended(route('products.indexClient')); // Utilise le nom de ta route d'accueil principale/client
 
             } else {
                 // Fallback (au cas où un utilisateur connecté n'aurait aucun des rôles attendus)

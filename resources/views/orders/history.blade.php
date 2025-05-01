@@ -1,8 +1,15 @@
 @extends('base')
+@section('title', 'Historique des Commandes - Pharmacie Dipharma')
 @section('content')
+<section class="bg-gradient-to-r md:mt-24 mt-5 from-[#176abc] to-[#135a9e] text-white py-10 md:py-15 overflow-hidden">
+    <div class="container mx-auto px-6 text-center relative z-10">
+        <h1 class="text-3xl md:text-5xl font-bold mb-4 animate-fadeInUp">
+            Historique de mes commandes
+        </h1>
+    </div>
+</section>
 <div class="bg-gray-100">
-    <div class="container w-[75%] mt-25 mx-auto px-4">
-    <h1 class="text-3xl font-semibold mb-6">Historique de mes commandes</h1>
+    <div class="container w-[75%] py-10 mx-auto px-4">
 
     @if (session('success'))
         <div class="bg-green-200 border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">

@@ -1,8 +1,15 @@
 @extends('base')
+@section('title', 'Panier - Pharmacie Dipharma')
 @section('content')
-    <div class="bg-gray-100  flex items-center mt-24 justify-center py-10">
+    <section class="bg-gradient-to-r md:mt-24 mt-5 from-[#176abc] to-[#135a9e] text-white py-10 md:py-15 overflow-hidden">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4 animate-fadeInUp">
+                Récapitulatif de votre commande
+            </h1>
+        </div>
+    </section>
+    <div class="bg-gray-100  flex items-center  justify-center py-10">
         <div class="container w-[75%] mx-auto px-4">
-            <h1 class="text-3xl font-semibold mb-6">Récapitulatif de votre commande</h1>
             @if (session('warning'))
                 <div class="bg-yellow-200 border-yellow-400 text-yellow-700 px-4 py-3 rounded relative mb-4" role="alert">
                     <strong class="font-bold">Attention!</strong>
@@ -38,7 +45,7 @@
                             </tr>
                         </tfoot>
                     </table>
-    
+
                     <h2 class="text-xl font-semibold mb-4">Informations de livraison</h2>
                     <form action="{{ route('orders.place') }}" method="POST" class="space-y-4">
                         @csrf
@@ -49,10 +56,10 @@
                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                             @enderror
                         </div>
-    
+
                         <div class="flex justify-end">
-                            <a href="{{ route('cart.index') }}" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2">Retour au panier</a>
-                            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline">Confirmer la commande</button>
+                            <a href="{{ route('cart.index') }}" class="bg-[#176abc] hover:border hover:text-[#176abc] hover:border-[#176abc] hover:bg-white text-white font-semibold py-1 px-2 rounded-md focus:outline-none focus:shadow-outline mr-2">Retour au panier</a>
+                            <button type="submit" class="bg-green-500 hover:border hover:text-green-500 hover:border-green-500 hover:bg-white text-white font-semibold py-1 px-2 rounded-md focus:outline-none focus:shadow-outline">Confirmer la commande</button>
                         </div>
                     </form>
                 </div>

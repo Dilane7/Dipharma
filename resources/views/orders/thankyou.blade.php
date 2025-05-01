@@ -1,5 +1,6 @@
 
 @extends('base')
+@section('title', 'Merci pour votre commande - Pharmacie Dipharma')
 @section('content')
     <div class="bg-gray-100  flex items-center mt-24 justify-center py-10">
         <div class="container w-[75%] mx-auto px-4">

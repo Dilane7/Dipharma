@@ -1,9 +1,10 @@
 @extends('base')
+@section('title', 'Détails de la Commande - Pharmacie Dipharma')
 @section('content')
 <div class="bg-gray-100  flex items-center mt-24 justify-center py-10">
     <div class="container w-[75%] mx-auto px-4">
         <h1 class="text-3xl font-semibold mb-6">Détails de la Commande #{{ $order->id }}</h1>
-    
+
         <div class="bg-white shadow-md rounded-lg p-6 mb-6">
             <h2 class="text-xl font-semibold mb-4">Informations de la Commande</h2>
             <p class="mb-2"><strong class="font-semibold">ID Commande:</strong> {{ $order->id }}</p>
@@ -22,7 +23,7 @@
             </p>
             <p class="mb-2"><strong class="font-semibold">Total de la Commande:</strong> {{ $order->total_amount }} FCFA</p>
         </div>
-    
+
         <div class="bg-white shadow-md rounded-lg p-6">
             <h2 class="text-xl font-semibold mb-4">Articles de la Commande</h2>
             <div class="overflow-x-auto">
@@ -48,9 +49,9 @@
                 </table>
             </div>
         </div>
-    
+
         <div class="mt-6">
-            <a href="{{ route('orders.history') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Retour à l'historique des commandes</a>
+            <a href="{{ route('orders.history') }}" class="bg-[#176abc] hover:bg-white hover:border hover:border-[#176abc] hover:text-[#176abc] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Retour à l'historique</a>
         </div>
     </div>
 </div>
