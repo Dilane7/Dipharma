@@ -66,4 +66,22 @@ class User extends Authenticatable
     {
         return $this->hasMany(Invoice::class);
     }
+
+    public function conversations()
+    {
+        // S'assurer que cela ne concerne que les clients si nécessaire via le rôle
+        return $this->hasMany(Conversation::class);
+    }
+
+    // Relation: Un utilisateur (client ou admin) peut avoir envoyé plusieurs messages
+    public function sentMessages()
+    {
+        return $this->hasMany(Message::class, 'sender_id');
+    }
+
+    // // Relation: Un utilisateur (client ou admin) peut avoir reçu plusieurs messages (Optionnel)
+    // public function receivedMessages()
+    // {
+    //     return $this->hasMany(Message::class, 'receiver_id');
+
 }

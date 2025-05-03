@@ -1,9 +1,16 @@
 @extends('base')
 @section('title', 'Edit Profil Client')
 @section('content')
+<section class="bg-gradient-to-r md:mt-24 mt-5 from-[#176abc] to-[#135a9e] text-white py-10 md:py-15 overflow-hidden">
+    <div class="container mx-auto px-6 text-center relative z-10">
+        <h1 class="text-3xl md:text-5xl font-bold mb-4 animate-fadeInUp">
+            Modifier mon Profil
+        </h1>
+    </div>
+</section>
 <div class="bg-gray-50">
-    <div class="mx-auto mt-24 w-1/3 py-4">
-        <h3 class="mb-4 text-xl font-semibold" style="color:#176abc">Modifier mon Profil</h3>
+    <div class="mx-auto  w-1/3 py-4">
+        <h3 class="mb-4 text-xl font-semibold" style="color:#176abc"></h3>
     
         @if (session('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4" role="alert">

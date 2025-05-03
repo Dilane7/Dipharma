@@ -36,14 +36,14 @@
             </h3> <br>
             <div class="flex">
                 <div>
-                    <button class="bg-[#176abc] animation-delay-500 animate-fadeInleft text-xl  shadow-[gray]/75 rounded-md shadow-sm text-white font-semibold gap-2 hover:bg-white hover:text-[#176abc]  hover:outline-2 items-center px-3 py-1">
-                        Get Started
-                    </button>
+                    <a href="{{ route('products.indexClient') }}" class="bg-[#176abc] animation-delay-500 animate-fadeInleft text-xl  shadow-[gray]/75 rounded-md shadow-sm text-white font-semibold gap-2 hover:bg-white hover:text-[#176abc]  hover:outline-2 items-center px-3 py-1">
+                        Produits
+                    </a>
                 </div>
                 <div>
-                    <button class="bg-[#44C244] animation-delay-500 animate-fadeInright text-xl rounded-md shadow-[gray]/75 shadow-sm text-white active:bg-white hover:text-[#44C244] focus:outline-[#44C244] focus:outline-2 focus:outline-offset-2 font-semibold hover:bg-white hover:outline-2 ml-7 px-3 py-1">
-                        Produits
-                    </button>
+                    <a href="{{ route('conversations.index') }}"  class="bg-[#44C244] animation-delay-500 animate-fadeInright text-xl rounded-md shadow-[gray]/75 shadow-sm text-white active:bg-white hover:text-[#44C244] focus:outline-[#44C244] focus:outline-2 focus:outline-offset-2 font-semibold hover:bg-white hover:outline-2 ml-7 px-3 py-1">
+                        Consultation
+                    </a>
                 </div>
             </div>
         </div>
@@ -100,7 +100,7 @@
 </section>
 
 {{-- apropos de nous --}}
-<section class="py-16 md:py-20 bg-gray-50"> {{-- Ajout padding et fond différent --}}
+<section class="py-16 md:pt-20 md:pb-34 bg-gray-50"> {{-- Ajout padding et fond différent --}}
     <div class="container w-[75%] mx-auto px-4"> {{-- Utilisation container --}}
         <div class="text-center mb-12">
             {{-- Taille titre responsive --}}
@@ -117,7 +117,7 @@
                     <img src="{{ asset('assets/img/healthcare.png') }}" class="h-10 w-10" alt="Pharmacie">
                 </div>
                 <div>
-                    <h2 class="text-lg md:text-xl font-semibold mt-2 text-gray-800">Pharmacie Enrichie</h2>
+                    <h2 class="text-lg md:text-xl font-semibold mt-2 text-[#176abc]">Pharmacie Enrichie</h2>
                 </div>
             </div>
              {{-- Item 2 --}}
@@ -126,7 +126,7 @@
                     <img src="{{ asset('assets/img/ambulance.png') }}" class="h-10 w-10" alt="Livraison">
                 </div>
                 <div>
-                    <h2 class="text-lg md:text-xl font-semibold mt-2 text-gray-800">Livraison à domicile</h2>
+                    <h2 class="text-lg md:text-xl font-semibold mt-2 text-[#176abc]">Livraison à domicile</h2>
                 </div>
             </div>
              {{-- Item 3 --}}
@@ -135,7 +135,7 @@
                     <img src="{{ asset('assets/img/sthetoscope.png') }}" class="h-10 w-10" alt="Traitement médical">
                 </div>
                 <div>
-                    <h2 class="text-lg md:text-xl font-semibold mt-2 text-gray-800">Traitement médical</h2>
+                    <h2 class="text-lg md:text-xl font-semibold mt-2 text-[#176abc]">Traitement médical</h2>
                 </div>
             </div>
         </div>
@@ -146,33 +146,54 @@
 
 <!-- separation -->
 
-<section>
-    <div class="relative w-full ">
-        <img src="{{ asset('assets/img/fun-bg.jpg') }}" alt="" class="object-cover h-60 w-full">
-        <div class="bg-[#176abc]/75 w text-white flex items-center font-semibold text-2xl h-60 absolute w-full top-0 z-1">
-            <div class="flex w-[75%] mx-auto justify-between">
-                <div class="compteur-container flex items-center gap-4">
-                    <img src="{{ asset('assets/img/free-delivery.png') }}" alt="" class="w-17 h-17">
-                    <div >
-                        <div class="text-2xl"> Livraison Gratuite</div>
-                        <div class="text-sm"> commande supérieure à 20.000f </div>
-                    </div>
-                </div>
+<section class=" "> 
+    <div class="relative w-full">
+        {{-- Image de fond avec hauteur responsive --}}
+        <img src="{{ asset('assets/img/fun-bg.jpg') }}" alt="Fond décoratif avantages pharmacie"
+             class="object-cover w-full h-100 sm:h-60 md:h-52 lg:h-48 rounded-md shadow-lg"> 
 
-                <div class="compteur-container flex items-center gap-4">
-                    <img src="{{ asset('assets/img/credit-card.png') }}" alt="" class="w-17 h-17">
-                    <div >
-                        <div class="text-2xl">Payement Rapide</span></div>
-                        <div class="text-sm">100% Securisé</div>
-                    </div>
-                </div>
+        
+        <div class="absolute inset-0 bg-[#176abc]/80 flex items-center rounded-md"> {{-- Opacité légèrement augmentée, coins arrondis --}}
 
-                <div class="compteur-container flex items-center gap-4">
-                    <img src="{{ asset('assets/img/headset.png') }}" alt="" class="w-17 h-17">
-                    <div >
-                        <div class="text-2xl">Assistance 24/7</div>
-                        <div class="text-sm">à Votre Service</div>
+            {{-- Conteneur pour le contenu, centré avec padding --}}
+            <div class="container w-[75%] mx-auto px-4 sm:px-6 lg:px-8 text-white ">
+
+                {{-- Grille pour les éléments --}}
+                {{-- 1 colonne sur mobile, 3 colonnes sur tablette et plus --}}
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 text-center sm:text-left">
+
+                    {{-- Élément 1: Livraison Gratuite --}}
+                    <div class="compteur-container flex flex-col items-center sm:flex-row sm:items-center gap-3 sm:gap-4">
+                        {{-- Icône avec taille responsive --}}
+                        <img src="{{ asset('assets/img/free-delivery.png') }}" alt="Livraison Gratuite"
+                             class="w-12 h-12 md:w-14 md:h-14 flex-shrink-0">
+                        <div>
+                            {{-- Texte avec tailles responsives --}}
+                            <div class="text-lg md:text-xl font-semibold">Livraison Gratuite</div>
+                            <div class="text-xs md:text-sm opacity-80">Dès 20.000 F CFA</div> {{-- Texte raccourci --}}
+                        </div>
                     </div>
+
+                    {{-- Élément 2: Paiement Rapide --}}
+                    <div class="compteur-container flex flex-col items-center sm:flex-row sm:items-center gap-3 sm:gap-4">
+                        <img src="{{ asset('assets/img/credit-card.png') }}" alt="Paiement Rapide"
+                             class="w-12 h-12 md:w-14 md:h-14 flex-shrink-0">
+                        <div>
+                            <div class="text-lg md:text-xl font-semibold">Paiement Rapide</div>
+                            <div class="text-xs md:text-sm opacity-80">100% Sécurisé</div>
+                        </div>
+                    </div>
+
+                    {{-- Élément 3: Assistance 24/7 --}}
+                    <div class="compteur-container flex flex-col items-center sm:flex-row sm:items-center gap-3 sm:gap-4">
+                        <img src="{{ asset('assets/img/headset.png') }}" alt="Assistance 24/7"
+                             class="w-12 h-12 md:w-14 md:h-14 flex-shrink-0">
+                        <div>
+                            <div class="text-lg md:text-xl font-semibold">Assistance 24/7</div>
+                            <div class="text-xs md:text-sm opacity-80">À Votre Service</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -189,6 +210,11 @@
             <!-- component -->
              <div class="w-[75%]  m-auto mt-20 mb-10 flex mx-auto gap-5 flex-wrap justify-between">
                 <div class="relative flex w-90  shadow-black/50 flex-col rounded-2xl bg-white  text-black shadow-sm transform transition-all duration-300 hover:-translate-y-7">
+                    <div class="absolute top-2 right-2">
+                        <span class="inline-block rounded-lg px-1 pb-1 text-xs font-bold  bg-green-500 text-white">
+                           Disponible
+                        </span>
+                    </div>
                     <div class="relative mx-8 mt-8 h-35 overflow-hidden rounded-xl  bg-clip-border text-white   bg-white transform transition-all duration-300 hover:-translate-y-4">
                         <div class="w-full h-full flex justify-center items-center">
                           <img src="{{ asset('assets/img/cetirizine.jpg') }}" alt=""  width="200px"  class=" object-cover">
@@ -202,33 +228,42 @@
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.
                       </p>
                     </div>
-                    <div class="px-8 pt-0 pb-5">
-                        <button data-ripple-light="true" type="button" class="select-none rounded-lg  text-white hover:bg-white hover:text-[#176abc] bg-[#176abc] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-black/25 transition-all hover:border hover:border-[#176abc] focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
+                    <div class="px-8 pt-0 pb-5 flex justify-between">
+                        <p class="text-[#176abc] text-lg font-bold">XAF 1450</p>
+                        <a href="{{ route('products.indexClient') }}" data-ripple-light="true" type="button" class="select-none rounded-lg  text-white hover:bg-white hover:text-[#176abc] bg-[#176abc] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-black/25 transition-all hover:border hover:border-[#176abc] focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
                         VOIR PLUS
-                      </button>
+                        </a>
                     </div>
                 </div>
+
+               
 
 
 
                 <div class="relative flex w-90  shadow-black/50 flex-col rounded-2xl bg-white  text-black shadow-sm transform transition-all duration-300 hover:-translate-y-7">
+                    <div class="absolute top-2 right-2">
+                        <span class="inline-block rounded-lg px-1 pb-1 text-xs font-bold  bg-green-500 text-white">
+                           Disponible
+                        </span>
+                    </div>
                     <div class="relative mx-8 mt-8 h-35 overflow-hidden rounded-xl  bg-clip-border text-white   bg-white transform transition-all duration-300 hover:-translate-y-4">
                         <div class="w-full h-full flex justify-center items-center">
-                          <img src="{{ asset('assets/img/doliprane 1000mg.png') }}" alt=""  width="200px"  class=" object-cover">
+                          <img src="{{ asset('assets/img/Oseltamivir-75.jpeg') }}" alt=""  width="200px"  class=" object-cover">
                         </div>
                       </div>
                     <div class="px-8 py-5">
                       <h5 class="mb-2 block text-[#176abc] font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        Doliprane 1000mg
+                        Oseltamivir 75mg
                       </h5>
                       <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.
                       </p>
                     </div>
-                    <div class="px-8 pt-0 pb-5">
-                        <button data-ripple-light="true" type="button" class="select-none rounded-lg  text-white hover:bg-white hover:text-[#176abc] bg-[#176abc] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-black/25 transition-all hover:border hover:border-[#176abc] focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
+                    <div class="px-8 pt-0 pb-5 flex justify-between">
+                        <p class="text-[#176abc] text-lg font-bold">XAF 2000</p>
+                        <a href="{{ route('products.indexClient') }}" data-ripple-light="true" type="button" class="select-none rounded-lg  text-white hover:bg-white hover:text-[#176abc] bg-[#176abc] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-black/25 transition-all hover:border hover:border-[#176abc] focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
                         VOIR PLUS
-                      </button>
+                        </a>
                     </div>
                 </div>
 
@@ -236,9 +271,14 @@
 
 
                 <div class="relative flex w-90  shadow-black/50 flex-col rounded-2xl bg-white  text-black shadow-sm transform transition-all duration-300 hover:-translate-y-7">
+                    <div class="absolute top-2 right-2">
+                        <span class="inline-block rounded-lg px-1 pb-1 text-xs font-bold  bg-green-500 text-white">
+                           Disponible
+                        </span>
+                    </div>
                     <div class="relative mx-8 mt-8 h-35 overflow-hidden rounded-xl  bg-clip-border text-white   bg-white transform transition-all duration-300 hover:-translate-y-4">
                         <div class="w-full h-full flex justify-center items-center">
-                          <img src="{{ asset('assets/img/efferalgan-1-g-comprime-upsa.jpg') }}" alt=""  width="200px"  class=" object-cover">
+                          <img src="{{ asset('assets/img/efferalgan-1-g-8-comprimes-effervescents.jpg') }}" alt=""  width="200px"  class=" object-cover">
                         </div>
                       </div>
                     <div class="px-8 py-5">
@@ -249,10 +289,11 @@
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.
                       </p>
                     </div>
-                    <div class="px-8 pt-0 pb-5">
-                        <button data-ripple-light="true" type="button" class="select-none rounded-lg  text-white hover:bg-white hover:text-[#176abc] bg-[#176abc] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-black/25 transition-all hover:border hover:border-[#176abc] focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
+                    <div class="px-8 pt-0 pb-5 flex justify-between">
+                        <p class="text-[#176abc] text-lg font-bold">XAF 1000</p>
+                        <a href="{{ route('products.indexClient') }}" data-ripple-light="true" type="button" class="select-none rounded-lg  text-white hover:bg-white hover:text-[#176abc] bg-[#176abc] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-black/25 transition-all hover:border hover:border-[#176abc] focus:opacity-[0.85] focus:shadow-none  active:shadow-none disabled:pointer-events-none disabled:opacity-50 ">
                         VOIR PLUS
-                      </button>
+                        </a>
                     </div>
                 </div>
 
@@ -336,33 +377,50 @@
 
 <!-- separation compteur -->
 
-<section>
-    <div class="relative w-full mb-0 mt-25">
-        <img src="{{ asset('assets/img/fun-bg.jpg') }}" alt="" class="object-cover h-60 w-full">
-        <div class="bg-[#176abc]/75 w text-white flex items-center font-semibold text-2xl h-60 absolute w-full top-0 z-1">
-            <div class="flex w-[75%] mx-auto justify-between">
-                <div class="compteur-container flex items-center gap-4">
-                    <img src="{{ asset('assets/img/pharmacy (1).png') }}" alt="" class="w-17 h-17">
-                    <div >
-                        <div class="text-4xl"><span id="compteur1" >0</span><span>+</span></div>
-                        <div class="text-md">Produits disponibles </div>
-                    </div>
-                </div>
+<section class="my-16 md:my-20 lg:my-24">
+    <div class="relative w-full">
+        <img src="{{ asset('assets/img/fun-bg.jpg') }}" alt="Statistiques clés pharmacie"
+             class="object-cover w-full h-120 sm:h-72 md:h-64 lg:h-60 rounded-lg shadow-lg"> {{-- Hauteur dégressive, coins arrondis, ombre --}}
 
-                <div class="compteur-container flex items-center gap-4">
-                    <img src="{{ asset('assets/img/bonheur.png') }}" alt="" class="w-17 h-17">
-                    <div >
-                        <div class="text-4xl"><span id="compteur2" >0</span><span>+</span></div>
-                        <div class="text-md">Clients satisfaits</div>
+        {{-- Overlay semi-transparent --}}
+        <div class="absolute inset-0 bg-[#176abc]/85 flex items-center rounded-lg"> {{-- Coins arrondis, opacité légèrement augmentée --}}
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-white w-full">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10 text-center">
+                    <div class="compteur-container flex flex-col items-center">
+                        <img src="{{ asset('assets/img/pharmacy (1).png') }}" alt="Produits disponibles"
+                             class="w-14 h-14 md:w-16 md:h-16 mb-2 md:mb-3">
+                        <div>
+                            <div class="text-3xl md:text-4xl font-bold">
+                                <span id="compteur1" class="counter" data-target="1200">0</span><span>+</span>
+                            </div>
+                            <div class="text-sm md:text-base opacity-80 mt-1">Produits disponibles</div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="compteur-container flex items-center gap-4">
-                    <img src="{{ asset('assets/img/checkout.png') }}" alt="" class="w-17 h-17">
-                    <div >
-                        <div class="text-4xl"><span id="compteur3" >0</span><span>+</span></div>
-                        <div class="text-md">Commandes livrées</div>
+                    {{-- Compteur 2: Clients satisfaits --}}
+                    <div class="compteur-container flex flex-col items-center">
+                        <img src="{{ asset('assets/img/bonheur.png') }}" alt="Clients satisfaits"
+                             class="w-14 h-14 md:w-16 md:h-16 mb-2 md:mb-3">
+                        <div>
+                            <div class="text-3xl md:text-4xl font-bold">
+                                <span id="compteur2" class="counter" data-target="5000">0</span><span>+</span>
+                            </div>
+                            <div class="text-sm md:text-base opacity-80 mt-1">Clients satisfaits</div>
+                        </div>
                     </div>
+
+                    {{-- Compteur 3: Commandes livrées --}}
+                    <div class="compteur-container flex flex-col items-center">
+                        <img src="{{ asset('assets/img/checkout.png') }}" alt="Commandes livrées"
+                             class="w-14 h-14 md:w-16 md:h-16 mb-2 md:mb-3">
+                        <div>
+                            <div class="text-3xl md:text-4xl font-bold">
+                                 <span id="compteur3" class="counter" data-target="8500">0</span><span>+</span>
+                            </div>
+                            <div class="text-sm md:text-base opacity-80 mt-1">Commandes livrées</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

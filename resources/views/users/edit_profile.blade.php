@@ -1,4 +1,5 @@
 <x-layaout>
+    
     <div class="container w-50 py-4">
         <h3 class="mb-4" style="color:#176abc">Modifier mon Profil</h3>
 

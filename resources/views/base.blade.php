@@ -48,7 +48,6 @@
                 @guest
                     <div class="flex justify-center ">
                         <a href="{{ route('login') }}" class="flex bg-[#176abc] rounded-xl shadow-[gray] shadow-sm text-white active:bg-[#176abc] focus:outline-[#176abc] focus:outline-2 focus:outline-offset-2 font-semibold gap-1 hover:text-[#176abc] hover:border hover:border-[#176abc] hover:bg-white hover:outline-2 px-2 py-[5px]">
-                            <img src="{{ asset('assets/img/add-user.png') }}" alt="" class="h-[20px] w-[20px]">
                             Se connecter
                         </a>
                     </div>
@@ -61,6 +60,9 @@
                                 <path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.829.672-1.5 1.5-1.5s1.5.671 1.5 1.5zm9-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5c.829 0 1.5-.671 1.5-1.5s-.671-1.5-1.5-1.5zm-5.48-7.19c-.034-.219-.053-.443-.053-.669 0-3.461 2.792-6.254 6.254-6.254h2.512c.03.226.049.451.049.678 0 .828-.672 1.5-1.5 1.5h-7.265c-3.272 0-5.93 2.658-5.93 5.929 0 .691.141 1.38.418 2.031l-1.53-3.109c-.047-.199-.28-.342-.486-.342h-2.214v2h2.09c.221.002.416.146.487.348l1.298 2.717c.269.564.832.945 1.472.945h6.557c.641 0 1.204-.381 1.472-.945l1.154-2.412c.278-.58.075-1.286-.464-1.633l-5.014-3.45c-.228-.157-.507-.157-.734 0z"/>
                             </svg>
                             <span id="cart-item-count" class="absolute top-0 right-0 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">{{ session('cart') ? count(session('cart')) : 0 }}</span>
+                        </a>
+                        <a href="{{ route('conversations.index') }}" class="text-gray-300 hover:text-white mr-4">
+                            <img src="{{ asset('assets/img/discuss.png') }}" alt="">
                         </a>
                         <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex items-center text-sm pe-1 font-medium text-white rounded-lg hover:text-blue-600 dark:hover:text-blue-500 md:me-0    dark:text-gray-900" type="button">
                             <Span class="text-lg me-3 text-[#176abc]">{{ Auth::user()->name }}</Span>

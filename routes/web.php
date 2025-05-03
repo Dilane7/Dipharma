@@ -12,7 +12,9 @@ use App\Http\Controllers\ProductLookupController;
 use App\Http\Controllers\InvoiceController; // Ensure this line exists and the class is correctly defined in your project
 use App\Http\Controllers\AdminDashboardController;// Ensure this controller exists in the specified namespace
 use Spatie\Permission\Contracts\Role;
-use App\Http\Controllers\StockController; // Ensure this controller exists in the specified namespace
+use App\Http\Controllers\StockController; 
+use App\Http\Controllers\UserConversationController;
+use App\Http\Controllers\AdminConversationController;// Ensure this controller exists in the specified namespace
 
 Route::get('/', function () {
     return view('welcome');
@@ -142,7 +144,38 @@ Route::middleware('auth')->group(function () {
     Route::get('/products/{product}/stock/remove', [StockController::class, 'removeStock'])->name('stock.remove');
     Route::post('/products/{product}/stock/remove', [StockController::class, 'storeRemoveStock'])->name('stock.storeRemove');
 
+});
+
+
+// --- Routes pour le Client (doivent être protégées par auth) ---
+Route::middleware('auth')->prefix('mes-messages')->name('conversations.')->group(function () {
+    // Lister les conversations du client
+   
+    Route::get('/', [UserConversationController::class, 'index'])->name('index');
+    Route::get('/nouveau', [UserConversationController::class, 'create'])->name('create'); // Afficher le formulaire
+    // Afficher une conversation spécifique et ses messages
+    Route::get('/{conversation}', [UserConversationController::class, 'show'])->name('show');
+    Route::post('/', [UserConversationController::class, 'store'])->name('store'); 
+    // Stocker une nouvelle réponse du client dans une conversation
+    Route::post('/{conversation}/reply', [UserConversationController::class, 'reply'])->name('reply');
+    // Afficher le formulaire pour créer une nouvelle conversation (optionnel)
 
     
+    
+});
+
+
+// --- Routes pour l'Admin (protégées par auth et role:admin) ---
+Route::middleware(['auth'])->prefix('admin/messagerie')->name('admin.conversations.')->group(function () {
+    // Lister toutes les conversations (ou filtrées : ouvertes, non lues...)
+    Route::get('/', [AdminConversationController::class, 'index'])->name('index');
+    // Afficher une conversation spécifique
+    Route::get('/{conversation}', [AdminConversationController::class, 'show'])->name('show');
+     // Stocker une nouvelle réponse de l'admin dans une conversation
+    Route::post('/{conversation}/reply', [AdminConversationController::class, 'reply'])->name('reply');
+    // Marquer une conversation comme fermée (optionnel)
+    Route::patch('/{conversation}/close', [AdminConversationController::class, 'close'])->name('close');
+     // Marquer une conversation comme ouverte (optionnel)
+    Route::patch('/{conversation}/open', [AdminConversationController::class, 'open'])->name('open');
 });
 
