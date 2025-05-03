@@ -57,8 +57,7 @@
                     </div>
                     <div class="flex flex-col" >
                         <span class="flex justify-center ">
-                            <button class="flex gap-2 bg-[#44C244] hover:bg-[#3daf3d] hover:outline-2  text-white rounded-md px-5 py-1 font-semibold shadow-sm shadow-[gray] focus:outline-2 focus:outline-offset-2 focus:outline-[#44C244] active:bg-[#44C244]">
-                                <img src="{{ asset('assets/img/add-user.png') }}" alt="" class="w-[20px] h-[20px]">
+                            <button class="flex gap-2 bg-[#44C244] hover:bg-white hover:text-[#44c244] hover:border hover:boder-[#44c244] hover:outline-2  text-white rounded-md px-5 py-1 font-semibold shadow-sm shadow-[gray] focus:outline-2 focus:outline-offset-2 focus:outline-[#44C244] active:bg-[#44C244]">
                                 S'inscrire
                             </button>
                         </span>
@@ -66,8 +65,7 @@
                         <span class="flex justify-center"><hr class="w-[280px] opacity-25"></span>
 
                         <span class="flex justify-center ">
-                            <a href="{{ route('login') }}" class="flex gap-2 bg-[#176abc] hover:bg-[#0398dd] hover:outline-2 text-white rounded-md font-semibold px-4 py-1 mt-5 mb-1 shadow-sm shadow-[gray] focus:outline-2 focus:outline-offset-2 focus:outline-[#03A9F5] active:bg-[#03A9F5]">
-                                <img src="{{ asset('assets/img/connexion.png') }}" alt="" class="w-[20px]">
+                            <a href="{{ route('login') }}" class="flex gap-2 bg-[#176abc] hover:bg-white hover:text-[#176abc] hover:border hover:border-[#176abc] hover:outline-2 text-white rounded-md font-semibold px-4 py-1 mt-5 mb-1 shadow-sm shadow-[gray] focus:outline-2 focus:outline-offset-2 focus:outline-[#03A9F5] active:bg-[#03A9F5]">
                                 Connexion
                             </a>
                         </span>

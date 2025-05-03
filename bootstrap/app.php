@@ -13,6 +13,15 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         //
+        $middleware->alias([
+            // Vous pouvez ajouter d'autres alias ici si nécessaire,
+            // mais ceux de base comme 'auth' sont souvent gérés ailleurs ou automatiquement.
+            // Assurez-vous de ne pas recréer des alias déjà existants par défaut.
+
+            // Alias pour Spatie Laravel Permission
+            'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
+            'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
+            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class, ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

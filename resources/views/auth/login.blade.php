@@ -44,8 +44,7 @@
                         </div>
                     <div class="flex flex-col" >
                         <span class="flex justify-center ">
-                            <button type="submit" class="flex gap-1 bg-[#44C244] hover:bg-[#3daf3d] hover:outline-2  text-white rounded-md px-3 py-1 font-semibold shadow-sm shadow-[gray] focus:outline-2 focus:outline-offset-2 focus:outline-[#44C244#03A9F5] active:bg-[#44C244]">
-                                <img src="{{ asset('assets/img/connexion.png') }}" alt="" class="w-[20px] ">
+                            <button type="submit" class="flex gap-1 bg-[#44C244] hover:bg-white hover:text-[#44C244] hover:border hover:border-[#44c244] hover:outline-2  text-white rounded-md px-3 py-1 font-bold shadow-sm shadow-[gray] focus:outline-2 focus:outline-offset-2 focus:outline-[#44C244#03A9F5] active:bg-[#44C244]">
                                 Connexion
                             </button>
                         </span>
@@ -54,8 +53,7 @@
 
                         <span class="flex justify-center ">
 
-                            <a href="{{ route('register') }}" class="flex gap-1 bg-[#176abc] hover:bg-[#0398dd] hover:outline-2 text-white rounded-md font-semibold px-3 py-1 mt-5 mb-1 shadow-sm shadow-[gray] focus:outline-2 focus:outline-offset-2 focus:outline-[#03A9F5] active:bg-[#03A9F5]">
-                                <img src="{{ asset('assets/img/add-user.png') }}" alt="" class="w-[20px] h-[20px]">
+                            <a href="{{ route('register') }}" class="flex gap-1 bg-[#176abc] hover:bg-white hover:text-[#176abc] hover:border hover:border-[#176abc] hover:outline-2 text-white rounded-md font-bold px-3 py-1 mt-5 mb-1 shadow-sm shadow-[gray] focus:outline-2 focus:outline-offset-2 focus:outline-[#03A9F5] active:bg-[#03A9F5]">
                                 S'inscrire
                             </a>
                         </span>

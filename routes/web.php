@@ -42,13 +42,16 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
+Route::middleware(['auth','role:admin|employe'])->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+});
 
-Route::middleware('auth')->prefix('categories')->name('categories.')->group(function () {
+
+Route::middleware(['auth','role:admin|employe'])->prefix('categories')->name('categories.')->group(function () {
     Route::get('/', [CategorieController::class, 'index'])->name('index');
     Route::post('/', [CategorieController::class, 'store'])->name('store');
     Route::get('/{categorie}/edit', [CategorieController::class, 'edit'])->name('edit');
@@ -56,7 +59,7 @@ Route::middleware('auth')->prefix('categories')->name('categories.')->group(func
     Route::delete('/{categorie}', [CategorieController::class, 'destroy'])->name('destroy');
 });
 
-Route::middleware('auth')->prefix('products')->name('products.')->group(function () {
+Route::middleware(['auth','role:admin|employe'])->prefix('products')->name('products.')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('index');
     Route::get('/create', [ProductController::class, 'create'])->name('create');
     Route::post('/', [ProductController::class, 'store'])->name('store');
@@ -68,7 +71,7 @@ Route::middleware('auth')->prefix('products')->name('products.')->group(function
 });
 
 
-Route::middleware('auth')->prefix('users')->name('users.')->group(function () {
+Route::middleware(['auth','role:admin'])->prefix('users')->name('users.')->group(function () {
     Route::get('/', [UserController::class, 'adminIndex'])->name('index');
     Route::get('/create', [UserController::class, 'adminCreate'])->name('create');
     Route::post('/', [UserController::class, 'adminStore'])->name('store');
@@ -79,19 +82,19 @@ Route::middleware('auth')->prefix('users')->name('users.')->group(function () {
 });
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','role:admin|employe'])->group(function () {
     Route::get('/profile/edit', [UserController::class, 'editProfile'])->name('profile.edit');
     Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('profile.update');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','role:client'])->group(function () {
     Route::get('/profile/editClient', [UserController::class, 'editProfileC'])->name('profile.editC');
     Route::put('/profile/updateClient', [UserController::class, 'updateProfileC'])->name('profile.updateC');
 });
 
 
 // Groupe de routes pour les clients (nécessite l'authentification et le rôle 'client')
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','role:client'])->group(function () {
     // Affichage des produits
     Route::get('/productsclient', [ProductController::class, 'indexClient'])->name('products.indexClient');
 
@@ -111,7 +114,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Groupe de routes pour l'administrateur (nécessite l'authentification et le rôle 'admin', préfixé par 'admin')
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','role:admin|employe'])->group(function () {
 
     // Gestion des commandes
     Route::get('/orders/pending', [OrderControllerA::class, 'pendingOrders'])->name('orders.pending');
@@ -119,18 +122,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/orders/{order}', [OrderControllerA::class, 'show'])->name('orders.show');
     Route::get('/orders_validated', [OrderControllerA::class, 'validatedOrders'])->name('orders.validatedOrders');
 
-    // Vous pouvez ajouter ici d'autres routes pour la gestion des commandes (e.g., afficher le détail d'une commande, marquer comme expédiée, annulée, etc.)
     // Exemple pour afficher le détail d'une commande :
     // Route::get('/orders/{order}', [AdminOrderController::class, 'show'])->name('admin.orders.show');
 });
 
 
 
-Route::middleware('auth')->group(function () {
-    // Dashboard or other admin routes
+Route::middleware(['auth','role:admin|employe'])->group(function () {
     // Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
-    // Invoice Routes
     Route::resource('invoices', InvoiceController::class);
     Route::get('orders/{order}/create-invoice', [InvoiceController::class, 'createFromOrder'])->name('invoices.createFromOrder');
 
@@ -148,7 +148,7 @@ Route::middleware('auth')->group(function () {
 
 
 // --- Routes pour le Client (doivent être protégées par auth) ---
-Route::middleware('auth')->prefix('mes-messages')->name('conversations.')->group(function () {
+Route::middleware(['auth','role:client'])->prefix('mes-messages')->name('conversations.')->group(function () {
     // Lister les conversations du client
    
     Route::get('/', [UserConversationController::class, 'index'])->name('index');
@@ -166,7 +166,7 @@ Route::middleware('auth')->prefix('mes-messages')->name('conversations.')->group
 
 
 // --- Routes pour l'Admin (protégées par auth et role:admin) ---
-Route::middleware(['auth'])->prefix('admin/messagerie')->name('admin.conversations.')->group(function () {
+Route::middleware(['auth','role:admin|employe'])->prefix('admin/messagerie')->name('admin.conversations.')->group(function () {
     // Lister toutes les conversations (ou filtrées : ouvertes, non lues...)
     Route::get('/', [AdminConversationController::class, 'index'])->name('index');
     // Afficher une conversation spécifique
