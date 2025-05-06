@@ -33,6 +33,9 @@ Route::get('/services', function () {
 
 
 
+    // Affichage des produits
+    Route::get('/productsclient', [ProductController::class, 'indexClient'])->name('products.indexClient');
+ 
 
 
 Route::middleware('guest')->group(function () {
@@ -94,9 +97,9 @@ Route::middleware(['auth','role:client'])->group(function () {
 
 
 // Groupe de routes pour les clients (nécessite l'authentification et le rôle 'client')
+
 Route::middleware(['auth','role:client'])->group(function () {
     // Affichage des produits
-    Route::get('/productsclient', [ProductController::class, 'indexClient'])->name('products.indexClient');
 
     // Gestion du panier
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');

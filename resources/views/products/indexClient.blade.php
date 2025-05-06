@@ -57,17 +57,29 @@
 
                         <div class="flex items-center justify-between">
                             <p class="text-blue-700 text-sm font-bold">XAF  {{ $product->prix }} </p>
+                            @guest
+                            <a  href="{{ route('login') }}" class=" bg-blue-700 hover:bg-white hover:border-blue-500 hover:border-2 text-white hover:text-blue-500 font-bold p-1 rounded-full focus:outline-none focus:shadow-outline mt-1 flex items-center justify-center w-9 h-9" >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-white hover:fill-blue-500" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z" />
+                                </svg>
+                            </a>
+                            @endguest
+                            @auth
                             <form id="add-to-cart-form-{{ $product->id }}" action="{{ route('cart.add', $product) }}" method="POST" class="add-to-cart-form">
                                 @csrf
                                 {{-- <button type="button"  data-product-id="{{ $product->id }}" class="add-to-cart-button bg-[#176abc] hover:bg-white hover:border text-sm   hover:text-[#176abc] text-white py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline mt-1" {{ !$product->is_available ? 'disabled' : '' }}>
                                     Acheter
                                 </button> --}}
+                                
                                 <button type="button" class="add-to-cart-button bg-blue-700 hover:bg-white hover:border-blue-500 hover:border-2 text-white hover:text-blue-500 font-bold p-1 rounded-full focus:outline-none focus:shadow-outline mt-1 flex items-center justify-center w-9 h-9" data-product-id="{{ $product->id }}" {{ !$product->is_available ? 'disabled' : '' }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-white hover:fill-blue-500" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z" />
                                     </svg>
                                 </button>
+                                
+                               
                             </form>
+                            @endauth
                         </div>
                     </div>
                 </div>

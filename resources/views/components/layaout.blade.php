@@ -121,8 +121,8 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            {{-- <!-- Nav Item - Pages Collapse Menu --> --}}
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <img src="{{ asset('assets/img/utilisateur (1).png') }}" alt="" width="20px" class="img-fluid">
@@ -135,7 +135,7 @@
                         <a class="collapse-item" href="">Nouveaux</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
             @role('admin')
              <!-- Nav Item - Gestion utilisateur Menu -->
@@ -265,11 +265,11 @@
 
                         <!-- Nav Item - Messages -->
                         <li class="nav-item  mx-1">
-                            
+
                             <a class="" href="{{ route('admin.conversations.index') }}" id="" role="button" >
                               <img src="{{ asset('assets/img/discuss.png') }}" class="mt-3" alt="">
                             </a>
-                           
+
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
